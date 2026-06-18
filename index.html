@@ -60,6 +60,7 @@
       transition: all 0.2s;
     }
     .nav-links a:hover { background: var(--primary-light); color: var(--primary); }
+    .nav-links a.active { background: var(--primary-light); color: var(--primary); }
 
     /* HERO */
     #hero {
@@ -961,7 +962,7 @@
 <!-- GALLERY -->
 <div class="section-wrap" id="gallery">
   <div class="reveal">
-    <div class="section-label">📸 Gallery</div>
+    <div class="section-label">05 — Gallery</div>
     <h2>Moments & <em>Activities</em></h2>
     <p class="section-subtitle">Snapshots from CTF competitions, workshops, leadership roles, and international programmes.</p>
   </div>
@@ -998,7 +999,7 @@
 <!-- REFLECTION -->
 <div class="section-wrap" id="reflection">
   <div class="reveal">
-    <div class="section-label">05 — Personal Reflection</div>
+    <div class="section-label">06 — Personal Reflection</div>
     <h2>My Dream <em>Company</em></h2>
     <p class="section-subtitle">Why Google — and what I bring to the table.</p>
   </div>
@@ -1067,7 +1068,7 @@
 <!-- CONTACT -->
 <div class="section-wrap" id="contact">
   <div class="reveal">
-    <div class="section-label">📬 Contact</div>
+    <div class="section-label">07 — Contact</div>
     <h2>Let's <em>Connect</em></h2>
     <p class="section-subtitle">Reach out for internship opportunities, collaboration, or just to say hi!</p>
   </div>
@@ -1077,9 +1078,9 @@
       <div class="contact-label">Email</div>
       <div class="contact-value">anandashrubiniseevagan@gmail.com</div>
     </a>
-    <a href="tel:+60129197679" class="contact-card">
+    <a href="https://wa.me/60129197679" target="_blank" class="contact-card">
       <div class="contact-icon icon-pink">📱</div>
-      <div class="contact-label">Phone</div>
+      <div class="contact-label">WhatsApp</div>
       <div class="contact-value">+6012 919 7679</div>
     </a>
     <a href="https://www.linkedin.com/in/anandashrubini-seevagan" target="_blank" class="contact-card">
@@ -1109,6 +1110,21 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
+  function setActiveLink() {
+    let current = sections[0];
+    const scrollPos = window.scrollY + 100;
+    sections.forEach(sec => {
+      if (sec && sec.offsetTop <= scrollPos) current = sec;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', current && link.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', setActiveLink);
+  setActiveLink();
 </script>
 </body>
 </html>
