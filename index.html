@@ -281,7 +281,53 @@
     .tl-year { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); background: var(--primary-light); display: inline-block; padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.5rem; }
     .tl-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
     .tl-body { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
-    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .tl-list { list-style: none; }
+    .tl-list li {
+      font-size: 0.87rem; color: var(--text-muted); line-height: 1.6;
+      padding: 0.25rem 0 0.25rem 1.1rem; position: relative;
+    }
+    .tl-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.65rem;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+    }
+    .cert-status-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+      margin: 1.1rem 0 0.6rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .cert-status-label:first-of-type { margin-top: 0; }
+    .cert-status-done { color: #065f46; }
+    .cert-status-progress { color: var(--primary-dark); }
+    .cert-status-planned { color: var(--text-muted); }
+    .cert-time-done { background: #d1fae5 !important; color: #065f46 !important; }
+    .cert-time-progress { background: var(--primary-light) !important; color: var(--primary) !important; }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem; }
+
+    .h-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 0.5rem; }
+    .h-step { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.1rem; position: relative; }
+    .h-step-dot { width: 10px; height: 10px; border-radius: 50%; margin-bottom: 0.6rem; }
+    .h-step-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; margin-bottom: 0.5rem; }
+    .h-step-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; }
+
+    .cert-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 0.5rem; }
+    .cert-card-wide {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: 0.9rem 1rem;
+    }
+    .cert-card-wide .cert-icon { font-size: 1.3rem; margin: 0; flex-shrink: 0; }
+    .cert-card-wide .cert-name { font-size: 0.86rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .cert-desc { font-size: 0.76rem; color: var(--text-muted); line-height: 1.5; }
+    .cert-desc a { color: var(--primary); text-decoration: none; font-weight: 700; }
+
+    .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .platform-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 0.75rem 1rem;
+      font-size: 0.85rem; font-weight: 600;
+    }
+    .platform-icon { font-size: 1.1rem; }
+
     .cert-card {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 16px; padding: 1.25rem; text-align: center;
@@ -401,6 +447,9 @@
     @media (max-width: 768px) {
       .career-grid, .two-col, .stat-grid, .ev-grid, .ref-grid, .sw-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
       .tools-cat-grid { grid-template-columns: 1fr 1fr; }
+      .h-timeline { grid-template-columns: 1fr; }
+      .cert-grid-3 { grid-template-columns: 1fr; }
+      .platform-grid { grid-template-columns: 1fr 1fr; }
       .stat-grid-4 { grid-template-columns: repeat(2, 1fr); }
       .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -709,60 +758,102 @@
 
 <!-- PLAN -->
 <div class="section-wrap" id="plan">
-  <div class="reveal">
+  <div class="reveal" style="margin-bottom:1.25rem;">
     <div class="section-label">03 — Career Development Plan</div>
     <h2>The <em>Roadmap</em> Ahead</h2>
-    <p class="section-subtitle">A realistic, structured 5-year plan from student to senior analyst.</p>
+    <p class="section-subtitle" style="margin-bottom:0;">A realistic, structured 5-year plan from student to senior analyst.</p>
   </div>
-  <div class="two-col reveal">
-    <div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">Now → 6 Months</div>
-          <div class="tl-title">Foundation & Certification</div>
-          <p class="tl-body">Sit CompTIA Security+ exam (training already done ✅). Complete FYP — Blockchain-Based Secure Evidence File Sharing System. Deepen Wireshark & Linux through TryHackMe and Hack The Box CTFs. Begin Splunk Fundamentals (free online).</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="background:var(--secondary);box-shadow:0 0 0 3px var(--secondary-light);"></div>
-          <div class="tl-year" style="color:var(--secondary);background:var(--secondary-light);">6 Months → 1 Year</div>
-          <div class="tl-title">Specialisation & Portfolio Building</div>
-          <p class="tl-body">Obtain CompTIA Security+ certificate. Start CEH preparation. Participate in more CTF competitions — building on Hack10 CTF 2026 & CTF 3.0. Build a public GitHub portfolio with security scripts and forensics projects. Apply for cybersecurity internship.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="background:var(--teal);box-shadow:0 0 0 3px var(--teal-light);"></div>
-          <div class="tl-year" style="color:var(--teal);background:var(--teal-light);">1 → 2 Years (Short-term Goal)</div>
-          <div class="tl-title">First Industry Role</div>
-          <p class="tl-body">Graduate from UniSZA with strong CGPA (currently 3.78). Land a Junior Cybersecurity Analyst or SOC Analyst role — targeting fintech, banking (Maybank, CIMB), or tech companies. Work in a real SOC environment. Leverage blockchain FYP as a Web3 security differentiator.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="background:var(--amber);box-shadow:0 0 0 3px var(--amber-light);"></div>
-          <div class="tl-year" style="color:#92400e;background:var(--amber-light);">2 → 5 Years (Long-term Goal)</div>
-          <div class="tl-title">Senior Analyst & Global Ambition</div>
-          <p class="tl-body">Progress to Senior Cybersecurity Analyst. Pursue OSCP for advanced offensive security. Target Google's cybersecurity team — inspired by TechTrail: Google Malaysia Visit (2026). Specialise in blockchain security. Contribute to open-source security research and mentor juniors.</p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="cert-grid" style="margin-bottom:1.25rem;">
-        <div class="cert-card"><div class="cert-icon">🔐</div><div class="cert-name">CompTIA Security+</div><div class="cert-time">Training Done ✅ · Exam Soon</div></div>
-        <div class="cert-card"><div class="cert-icon">🌐</div><div class="cert-name">CCNA</div><div class="cert-time">Training Done ✅</div></div>
-        <div class="cert-card"><div class="cert-icon">🎯</div><div class="cert-name">CEH</div><div class="cert-time">Target: Year 1–2</div></div>
-        <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-name">AWS Security</div><div class="cert-time">Target: Year 2</div></div>
-        <div class="cert-card"><div class="cert-icon">💀</div><div class="cert-name">OSCP</div><div class="cert-time">Target: Year 3–5</div></div>
-        <div class="cert-card"><div class="cert-icon">🔗</div><div class="cert-name">Blockchain Security</div><div class="cert-time">FYP Foundation ✅</div></div>
-      </div>
-      <div class="card">
-        <div class="card-icon icon-teal">🎮</div>
-        <div class="card-title">Platforms to Master</div>
-        <ul class="item-list">
-          <li>TryHackMe — guided security labs</li>
-          <li>Hack The Box — CTF (competing now! 🏆)</li>
-          <li>Splunk Free Training — SIEM skills</li>
-          <li>OWASP WebGoat — web app security</li>
-          <li>GitHub — public portfolio & open source</li>
+
+  <div class="card reveal" style="margin-bottom:1.25rem;">
+    <div class="card-icon icon-blue">🗺️</div>
+    <div class="card-title">5-Year Timeline</div>
+    <div class="h-timeline">
+      <div class="h-step">
+        <div class="h-step-dot" style="background:var(--primary);"></div>
+        <div class="h-step-year" style="color:var(--primary);background:var(--primary-light);">Now → 6 Months</div>
+        <div class="h-step-title">Foundation & Certification</div>
+        <ul class="tl-list">
+          <li>Sit remaining cert exams — Security+ already done ✅</li>
+          <li>Finish FYP: Blockchain Evidence Sharing System</li>
+          <li>Sharpen skills via TryHackMe & Hack The Box</li>
+          <li>Start Splunk Fundamentals (free course)</li>
         </ul>
       </div>
+      <div class="h-step">
+        <div class="h-step-dot" style="background:var(--secondary);"></div>
+        <div class="h-step-year" style="color:var(--secondary);background:var(--secondary-light);">6 Months → 1 Year</div>
+        <div class="h-step-title">Specialisation & Portfolio</div>
+        <ul class="tl-list">
+          <li>Begin CySA+ preparation</li>
+          <li>Compete in more CTFs</li>
+          <li>Build public GitHub portfolio</li>
+          <li>Apply for cybersecurity internship</li>
+        </ul>
+      </div>
+      <div class="h-step">
+        <div class="h-step-dot" style="background:var(--teal);"></div>
+        <div class="h-step-year" style="color:var(--teal);background:var(--teal-light);">1 → 2 Years</div>
+        <div class="h-step-title">First Industry Role</div>
+        <ul class="tl-list">
+          <li>Graduate from UniSZA (CGPA 3.78)</li>
+          <li>Land Junior Cybersecurity / SOC Analyst role</li>
+          <li>Target fintech, banking, or tech companies</li>
+          <li>Complete CySA+ and Pentest+</li>
+        </ul>
+      </div>
+      <div class="h-step">
+        <div class="h-step-dot" style="background:var(--amber);"></div>
+        <div class="h-step-year" style="color:#92400e;background:var(--amber-light);">2 → 5 Years</div>
+        <div class="h-step-title">Senior Analyst & Global Ambition</div>
+        <ul class="tl-list">
+          <li>Progress to Senior Cybersecurity Analyst</li>
+          <li>Pursue CASP+ and OSCP</li>
+          <li>Earn a Blockchain Security certification</li>
+          <li>Target Google's cybersecurity team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-bottom:1.25rem;">
+    <div class="card-icon icon-amber">🎯</div>
+    <div class="card-title">Certifications Roadmap</div>
+    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">What each certification is, and where I stand with it — completed, in progress, or planned next.</p>
+
+    <div class="cert-status-label cert-status-done">✅ Completed</div>
+    <div class="cert-grid-3">
+      <div class="cert-card-wide"><div class="cert-icon">🔐</div><div><div class="cert-name">CompTIA Security+</div><div class="cert-desc">Core cybersecurity certification — networks, risk, cryptography</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">🌐</div><div><div class="cert-name">CCNA</div><div class="cert-desc">Cisco networking certification — routing, switching, VLANs</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">🤖</div><div><div class="cert-name">Google AI Essentials</div><div class="cert-desc">Coursera — practical AI tools & workflows <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/TE0MM0HQWNHD?trk=public_profile_certification-title" target="_blank">↗</a></div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">💬</div><div><div class="cert-name">Google Prompting Essentials</div><div class="cert-desc">Coursera — effective AI prompt writing <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/DNWE51B80EAB?trk=public_profile_certification-title" target="_blank">↗</a></div></div></div>
+    </div>
+
+    <div class="cert-status-label cert-status-progress">🔵 In Progress</div>
+    <div class="cert-grid-3">
+      <div class="cert-card-wide"><div class="cert-icon">🔗</div><div><div class="cert-name">Blockchain Security (FYP-based)</div><div class="cert-desc">Applied learning through my Final Year Project</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">📊</div><div><div class="cert-name">CompTIA CySA+</div><div class="cert-desc">Cybersecurity analyst certification — threat detection & response</div></div></div>
+    </div>
+
+    <div class="cert-status-label cert-status-planned">⬜ Planned</div>
+    <div class="cert-grid-3">
+      <div class="cert-card-wide"><div class="cert-icon">🕵️</div><div><div class="cert-name">CompTIA Pentest+</div><div class="cert-desc">Hands-on penetration testing certification</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">🏆</div><div><div class="cert-name">CompTIA CASP+</div><div class="cert-desc">Advanced security practitioner — enterprise level</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">🎯</div><div><div class="cert-name">CEH</div><div class="cert-desc">Certified Ethical Hacker — offensive security</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">☁️</div><div><div class="cert-name">AWS Security</div><div class="cert-desc">Cloud security fundamentals on AWS</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">💀</div><div><div class="cert-name">OSCP</div><div class="cert-desc">Advanced offensive security — hands-on exploitation</div></div></div>
+      <div class="cert-card-wide"><div class="cert-icon">🛡️</div><div><div class="cert-name">Blockchain Security Resources</div><div class="cert-desc">Smart contract & Web3 security learning (e.g. Secureum, CertiK Academy)</div></div></div>
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-icon icon-teal">🎮</div>
+    <div class="card-title">Platforms to Master</div>
+    <div class="platform-grid">
+      <div class="platform-item"><span class="platform-icon">🧪</span>TryHackMe — guided security labs</div>
+      <div class="platform-item"><span class="platform-icon">🏆</span>Hack The Box — CTF (competing now!)</div>
+      <div class="platform-item"><span class="platform-icon">📊</span>Splunk Free Training — SIEM skills</div>
+      <div class="platform-item"><span class="platform-icon">🕸️</span>OWASP WebGoat — web app security</div>
+      <div class="platform-item"><span class="platform-icon">💻</span>GitHub — public portfolio & open source</div>
     </div>
   </div>
 </div>
