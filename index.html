@@ -63,9 +63,9 @@
 
     /* HERO */
     #hero {
-      min-height: 100vh;
+      min-height: auto;
       display: flex; align-items: center; justify-content: center;
-      padding: 100px 2rem 4rem; text-align: center;
+      padding: 110px 3rem 5rem; text-align: center;
       background: linear-gradient(160deg, #ffffff 0%, #f0f2ff 50%, #fff5f8 100%);
       position: relative; overflow: hidden;
     }
@@ -75,7 +75,7 @@
     .blob1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; }
     .blob2 { width: 300px; height: 300px; background: var(--secondary); bottom: -50px; left: -50px; }
     .blob3 { width: 200px; height: 200px; background: var(--teal); top: 40%; left: 10%; }
-    .hero-inner { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
+    .hero-inner { position: relative; z-index: 1; max-width: 1300px; width: 100%; margin: 0 auto; }
     .hero-flex {
       display: flex; align-items: center; gap: 3rem;
       text-align: left;
@@ -85,13 +85,13 @@
     .hero-flex .profile-photo,
     .hero-flex .avatar-placeholder { margin: 0; }
     .profile-photo {
-      width: 220px; height: 340px; border-radius: 20px;
+      width: 270px; height: 410px; border-radius: 20px;
       border: 4px solid white; box-shadow: 0 8px 32px rgba(91,108,240,0.2);
       object-fit: cover; display: block;
       opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
     }
     .avatar-placeholder {
-      width: 220px; height: 340px; border-radius: 20px;
+      width: 270px; height: 410px; border-radius: 20px;
       border: 4px solid white; box-shadow: 0 8px 32px rgba(91,108,240,0.2);
       background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
       display: flex; align-items: center; justify-content: center;
@@ -118,8 +118,11 @@
     h1 .name-highlight { color: var(--primary); }
     .hero-role {
       font-size: 1.15rem; color: var(--text-muted); font-weight: 500;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem; line-height: 1.6;
       opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards;
+    }
+    .hero-role-highlight {
+      color: var(--secondary); font-weight: 700;
     }
     .hero-cgpa {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -408,7 +411,7 @@
       <div class="hero-text">
         <div class="hero-chip"><span class="chip-dot"></span> E-Portfolio · Network Security</div>
         <h1>Anandashrubini<br/><span class="name-highlight">Seevagan</span></h1>
-        <p class="hero-role">Bachelor of Computer Science (Computer Network Security) · Aspiring Cybersecurity Analyst</p>
+        <p class="hero-role">Bachelor of Computer Science (Computer Network Security)<br/><span class="hero-role-highlight">Aspiring Cybersecurity Analyst</span></p>
         <div class="hero-stat-grid">
           <div class="hero-stat-box"><div class="hero-stat-num" style="color:var(--primary);">3.78</div><div class="hero-stat-label">CGPA</div></div>
           <div class="hero-stat-box"><div class="hero-stat-num" style="color:var(--secondary);">4×</div><div class="hero-stat-label">Dean's Awards</div></div>
