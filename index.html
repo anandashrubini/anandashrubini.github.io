@@ -75,20 +75,30 @@
     .blob1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; }
     .blob2 { width: 300px; height: 300px; background: var(--secondary); bottom: -50px; left: -50px; }
     .blob3 { width: 200px; height: 200px; background: var(--teal); top: 40%; left: 10%; }
-    .hero-inner { position: relative; z-index: 1; }
+    .hero-inner { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
+    .hero-flex {
+      display: flex; align-items: center; gap: 3rem;
+      text-align: left;
+    }
+    .hero-flex .hero-text { flex: 1; }
+    .hero-flex .hero-photo-col { flex-shrink: 0; }
+    .hero-flex .profile-photo,
+    .hero-flex .avatar-placeholder { margin: 0; }
     .profile-photo {
-      width: 140px; height: 140px; border-radius: 50%;
+      width: 220px; height: 340px; border-radius: 20px;
       border: 4px solid white; box-shadow: 0 8px 32px rgba(91,108,240,0.2);
-      object-fit: cover; margin-bottom: 1.5rem;
+      object-fit: cover; display: block;
       opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
     }
     .avatar-placeholder {
-      width: 140px; height: 140px; border-radius: 50%;
+      width: 220px; height: 340px; border-radius: 20px;
       border: 4px solid white; box-shadow: 0 8px 32px rgba(91,108,240,0.2);
       background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
       display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem; margin: 0 auto 1.5rem;
       opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    .avatar-placeholder span {
+      font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-align: center; padding: 0 1rem;
     }
     .hero-chip {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -134,7 +144,7 @@
     .badge-teal { background: var(--teal-light); color: var(--teal); border-color: #9fe1cb; }
     .badge-amber { background: var(--amber-light); color: #92400e; border-color: #fac775; }
     .cta-row {
-      display: flex; gap: 1rem; justify-content: center;
+      display: flex; gap: 1rem; justify-content: flex-start;
       opacity: 0; animation: fadeUp 0.7s ease 0.9s forwards;
     }
     .btn {
@@ -296,7 +306,53 @@
     .sw-list { list-style: none; }
     .sw-list li { font-size: 0.87rem; color: var(--text-muted); padding: 0.25rem 0; display: flex; gap: 0.5rem; align-items: flex-start; }
 
-    /* FOOTER */
+    .hero-stat-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem;
+      margin: 0 0 2rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards;
+    }
+    .hero-stat-box {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1rem 0.75rem; text-align: center;
+      box-shadow: var(--card-shadow);
+    }
+    .hero-stat-num { font-size: 1.5rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem; }
+    .hero-stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; line-height: 1.3; }
+
+    /* GALLERY */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .gallery-item {
+      position: relative; border-radius: 18px; overflow: hidden;
+      box-shadow: var(--card-shadow); transition: transform 0.25s, box-shadow 0.25s;
+      aspect-ratio: 4/3; background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-item:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--card-hover); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-placeholder-text { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-align: center; padding: 0 1rem; }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.85), transparent);
+      color: white; font-size: 0.78rem; font-weight: 600;
+      padding: 1.5rem 0.9rem 0.7rem;
+    }
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .contact-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.75rem; text-align: center;
+      box-shadow: var(--card-shadow); transition: all 0.25s;
+      text-decoration: none; color: var(--text); display: block;
+    }
+    .contact-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover); }
+    .contact-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; margin: 0 auto 1rem;
+    }
+    .contact-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+    .contact-value { font-size: 0.95rem; font-weight: 700; word-break: break-word; }
+
     footer {
       background: var(--white); border-top: 1px solid var(--border);
       text-align: center; padding: 3rem 2rem;
@@ -311,7 +367,11 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
-      .career-grid, .two-col, .stat-grid, .ev-grid, .ref-grid, .sw-grid, .cert-grid { grid-template-columns: 1fr; }
+      .career-grid, .two-col, .stat-grid, .ev-grid, .ref-grid, .sw-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-flex { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .cta-row { justify-content: center; }
       nav { padding: 0 1rem; }
       .nav-links { gap: 0; }
       .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
@@ -322,13 +382,15 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="#hero"><span class="dot"></span> Anandashrubini.CS</a>
+  <a class="nav-logo" href="#hero"><span class="dot"></span> ANANDASHRUBINI PORTFOLIO</a>
   <ul class="nav-links">
     <li><a href="#career">Career</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#plan">Plan</a></li>
     <li><a href="#evidence">Evidence</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -338,24 +400,22 @@
   <div class="hero-blob blob2"></div>
   <div class="hero-blob blob3"></div>
   <div class="hero-inner">
-    <!-- Replace this div with: <img src="photo.jpg" alt="Anandashrubini" class="profile-photo"> -->
-    <div class="avatar-placeholder">👩‍💻</div>
-    <div class="hero-chip"><span class="chip-dot"></span> CSA30203 · Special Topics in Network Security · UniSZA</div>
-    <h1>Anandashrubini<br/><span class="name-highlight">Seevagan</span></h1>
-    <p class="hero-role">Bachelor of Computer Science (Network Security) · Aspiring Cybersecurity Analyst</p>
-    <div class="hero-cgpa">⭐ CGPA 3.78 · Anugerah Terbaik Program Sarjana Muda · Dean's Award Recipient</div>
-    <div class="hero-badges">
-      <span class="badge badge-blue">Network Security</span>
-      <span class="badge badge-pink">Penetration Testing</span>
-      <span class="badge badge-teal">Computer Forensics</span>
-      <span class="badge badge-amber">Blockchain Research</span>
-      <span class="badge badge-blue">Wireshark</span>
-      <span class="badge badge-pink">CTF Competitor</span>
-      <span class="badge badge-teal">International Experience</span>
-    </div>
-    <div class="cta-row">
-      <a href="#career" class="btn btn-primary">Explore Portfolio →</a>
-      <a href="https://www.linkedin.com/in/anandashrubini-seevagan" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+    <div class="hero-flex">
+      <div class="hero-photo-col">
+        <!-- Replace this div with: <img src="photo.jpg" alt="Anandashrubini" class="profile-photo"> -->
+        <img src="photo.jpeg" alt="Anandashrubini" class="profile-photo">
+      </div>
+      <div class="hero-text">
+        <div class="hero-chip"><span class="chip-dot"></span> E-Portfolio · Network Security</div>
+        <h1>Anandashrubini<br/><span class="name-highlight">Seevagan</span></h1>
+        <p class="hero-role">Bachelor of Computer Science (Computer Network Security) · Aspiring Cybersecurity Analyst</p>
+        <div class="hero-stat-grid">
+          <div class="hero-stat-box"><div class="hero-stat-num" style="color:var(--primary);">3.78</div><div class="hero-stat-label">CGPA</div></div>
+          <div class="hero-stat-box"><div class="hero-stat-num" style="color:var(--secondary);">4×</div><div class="hero-stat-label">Dean's Awards</div></div>
+          <div class="hero-stat-box"><div class="hero-stat-num" style="color:var(--teal);">5</div><div class="hero-stat-label">Certifications</div></div>
+          <div class="hero-stat-box"><div class="hero-stat-num" style="color:var(--amber);">6+</div><div class="hero-stat-label">Leadership Roles</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -655,6 +715,43 @@
 
 <div class="divider"></div>
 
+<!-- GALLERY -->
+<div class="section-wrap" id="gallery">
+  <div class="reveal">
+    <div class="section-label">📸 Gallery</div>
+    <h2>Moments & <em>Activities</em></h2>
+    <p class="section-subtitle">Snapshots from CTF competitions, workshops, leadership roles, and international programmes.</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <span class="gallery-placeholder-text">📷 Photo: Hack10 CTF 2026</span>
+      <div class="gallery-caption">International Hack10 CTF 2026</div>
+    </div>
+    <div class="gallery-item">
+      <span class="gallery-placeholder-text">📷 Photo: Google Malaysia Visit</span>
+      <div class="gallery-caption">TechTrail: Google Malaysia</div>
+    </div>
+    <div class="gallery-item">
+      <span class="gallery-placeholder-text">📷 Photo: EXACAB Programme</span>
+      <div class="gallery-caption">EXACAB — Programme Director</div>
+    </div>
+    <div class="gallery-item">
+      <span class="gallery-placeholder-text">📷 Photo: Jakarta Mobility</span>
+      <div class="gallery-caption">UPNVJ Credit Mobility, Jakarta</div>
+    </div>
+    <div class="gallery-item">
+      <span class="gallery-placeholder-text">📷 Photo: Dean's Award Ceremony</span>
+      <div class="gallery-caption">Majlis Anugerah Cemerlang</div>
+    </div>
+    <div class="gallery-item">
+      <span class="gallery-placeholder-text">📷 Photo: CTF 3.0 UniSZA-UMK-UMT</span>
+      <div class="gallery-caption">CTF 3.0 Competition</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <!-- REFLECTION -->
 <div class="section-wrap" id="reflection">
   <div class="reveal">
@@ -719,6 +816,34 @@
     <p class="ref-a" style="font-size:0.95rem;line-height:1.9;">
       Google looks for people who are curious, driven, and capable of thinking differently. I am pursuing cybersecurity not because it is a trending career, but because I genuinely care about digital safety — as proven by my choice to build a blockchain-based evidence security system as my Final Year Project. My combination of academic excellence, CTF competition experience, international leadership, and a rare blockchain security specialisation is uncommon among fresh graduates. The TechTrail Google Malaysia visit confirmed the standard Google sets — and I am building toward it with intention, honesty, and relentless curiosity.
     </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section-wrap" id="contact">
+  <div class="reveal">
+    <div class="section-label">📬 Contact</div>
+    <h2>Let's <em>Connect</em></h2>
+    <p class="section-subtitle">Reach out for internship opportunities, collaboration, or just to say hi!</p>
+  </div>
+  <div class="contact-grid reveal">
+    <a href="mailto:anandashrubiniseevagan@gmail.com" class="contact-card">
+      <div class="contact-icon icon-blue">📧</div>
+      <div class="contact-label">Email</div>
+      <div class="contact-value">anandashrubiniseevagan@gmail.com</div>
+    </a>
+    <a href="tel:+60129197679" class="contact-card">
+      <div class="contact-icon icon-pink">📱</div>
+      <div class="contact-label">Phone</div>
+      <div class="contact-value">+6012 919 7679</div>
+    </a>
+    <a href="https://www.linkedin.com/in/anandashrubini-seevagan" target="_blank" class="contact-card">
+      <div class="contact-icon icon-teal">💼</div>
+      <div class="contact-label">LinkedIn</div>
+      <div class="contact-value">anandashrubini-seevagan</div>
+    </a>
   </div>
 </div>
 
