@@ -302,9 +302,18 @@
     .cert-time-progress { background: var(--primary-light) !important; color: var(--primary) !important; }
     .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem; }
 
-    .h-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 0.5rem; }
+    .h-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; padding-top: 0.5rem; position: relative; }
+    .h-timeline::before {
+      content: ''; position: absolute; top: -0.5rem; left: 5%; right: 5%; height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--teal), var(--amber));
+      border-radius: 2px;
+    }
     .h-step { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.1rem; position: relative; }
-    .h-step-dot { width: 10px; height: 10px; border-radius: 50%; margin-bottom: 0.6rem; }
+    .h-step-dot {
+      width: 14px; height: 14px; border-radius: 50%; margin: 0 auto 0.6rem;
+      border: 3px solid var(--white); box-shadow: 0 0 0 2px currentColor;
+      position: absolute; top: -1.45rem; left: 50%; transform: translateX(-50%);
+    }
     .h-step-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; margin-bottom: 0.5rem; }
     .h-step-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; }
 
@@ -769,7 +778,7 @@
     <div class="card-title">5-Year Timeline</div>
     <div class="h-timeline">
       <div class="h-step">
-        <div class="h-step-dot" style="background:var(--primary);"></div>
+        <div class="h-step-dot" style="background:var(--primary);color:var(--primary);"></div>
         <div class="h-step-year" style="color:var(--primary);background:var(--primary-light);">Now → 6 Months</div>
         <div class="h-step-title">Foundation & Certification</div>
         <ul class="tl-list">
@@ -780,7 +789,7 @@
         </ul>
       </div>
       <div class="h-step">
-        <div class="h-step-dot" style="background:var(--secondary);"></div>
+        <div class="h-step-dot" style="background:var(--secondary);color:var(--secondary);"></div>
         <div class="h-step-year" style="color:var(--secondary);background:var(--secondary-light);">6 Months → 1 Year</div>
         <div class="h-step-title">Specialisation & Portfolio</div>
         <ul class="tl-list">
@@ -791,7 +800,7 @@
         </ul>
       </div>
       <div class="h-step">
-        <div class="h-step-dot" style="background:var(--teal);"></div>
+        <div class="h-step-dot" style="background:var(--teal);color:var(--teal);"></div>
         <div class="h-step-year" style="color:var(--teal);background:var(--teal-light);">1 → 2 Years</div>
         <div class="h-step-title">First Industry Role</div>
         <ul class="tl-list">
@@ -802,7 +811,7 @@
         </ul>
       </div>
       <div class="h-step">
-        <div class="h-step-dot" style="background:var(--amber);"></div>
+        <div class="h-step-dot" style="background:var(--amber);color:var(--amber);"></div>
         <div class="h-step-year" style="color:#92400e;background:var(--amber-light);">2 → 5 Years</div>
         <div class="h-step-title">Senior Analyst & Global Ambition</div>
         <ul class="tl-list">
@@ -884,9 +893,19 @@
       <p>Practical knowledge in switching, routing, and wireless networking — including VLANs, IPv4/IPv6 addressing, network configuration, troubleshooting, and Cisco device security best practices.</p>
     </div>
     <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--amber);">🤖 Certification — Coursera</div>
+      <h4>Google AI Essentials</h4>
+      <p>Completed Google's AI Essentials specialisation on Coursera — covering practical AI tools, workflows, and responsible use of generative AI. <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/TE0MM0HQWNHD?trk=public_profile_certification-title" target="_blank" style="color:var(--primary);font-weight:700;">View certificate ↗</a></p>
+    </div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--amber);">💬 Certification — Coursera</div>
+      <h4>Google Prompting Essentials</h4>
+      <p>Completed Google's Prompting Essentials specialisation on Coursera — learning how to write clear, effective prompts to get the most out of AI tools. <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/DNWE51B80EAB?trk=public_profile_certification-title" target="_blank" style="color:var(--primary);font-weight:700;">View certificate ↗</a></p>
+    </div>
+    <div class="ev-card reveal">
       <div class="ev-type" style="color:var(--amber);">🤖 Workshop</div>
-      <h4>AI Training Workshop — Mental Wellness Buddy Chatbot</h4>
-      <p>Gained foundational AI & Machine Learning knowledge. Designed and developed the Mental Wellness Buddy AI chatbot — applying chatbot development, user interaction design, and AI implementation skills.</p>
+      <h4>AI Exploration Workshop: Generative AI & LLMs</h4>
+      <p>Gained foundational knowledge of AI and Large Language Models. Designed and developed the Mental Wellness Buddy AI chatbot — applying chatbot development, user interaction design, and AI implementation skills.</p>
     </div>
     <div class="ev-card reveal">
       <div class="ev-type" style="color:var(--primary);">🔗 Final Year Project (Ongoing)</div>
@@ -900,31 +919,38 @@
     </div>
     <div class="ev-card reveal">
       <div class="ev-type" style="color:var(--teal);">🌐 Networking Workshop</div>
-      <h4>Hands-On Networking Workshop</h4>
-      <p>Participated in a practical networking workshop earning exposure to network configuration, IP addressing, and troubleshooting techniques in real lab environments.</p>
+      <h4>Computer Networking Bootcamp</h4>
+      <p>Participated in a practical networking bootcamp earning exposure to network configuration, IP addressing, and troubleshooting techniques in real lab environments.</p>
+    </div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--primary);">🏢 Industry Visit</div>
+      <h4>TechTrail: Industry Visit to Google Malaysia</h4>
+      <p>Visited Google Malaysia as part of TechTrail 2026 — gaining firsthand insight into Google's engineering culture, security practices, and innovation standards. A key experience shaping my goal to join Google's cybersecurity team.</p>
     </div>
     <div class="ev-card reveal">
       <div class="ev-type" style="color:var(--amber);">🏅 Academic Achievement</div>
-      <h4>Anugerah Terbaik & Dean's Award (Multiple Semesters)</h4>
-      <p>Received Anugerah Terbaik Program Sarjana Muda Sains Komputer and Dean's Award for Sem I & II 2024/2025 and Sem II 2023/2024. Current CGPA: 3.78.</p>
+      <h4>Dean's Award — Semester 2 to 5</h4>
+      <p>Received the Dean's Award (Anugerah Dekan) across four consecutive semesters — Sem II 2023/2024, Sem I & II 2024/2025 — reflecting consistent academic excellence. Current CGPA: 3.78.</p>
+    </div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--amber);">🏅 Academic Achievement</div>
+      <h4>Anugerah Terbaik Program Sarjana Muda Sains Komputer</h4>
+      <p>Awarded Best Student for the Bachelor of Computer Science (Network Security) programme at the Majlis Anugerah Cemerlang 2024/2025 — recognising top performance within the cohort.</p>
     </div>
   </div>
 
   <div class="card reveal" style="margin-top:1.5rem;">
     <div class="card-icon icon-blue">🌟</div>
-    <div class="card-title">Leadership, Achievements & International Experience</div>
+    <div class="card-title">Leadership & International Experience</div>
     <ul class="ach-list">
-      <li><span class="yr-badge">2026</span>International Hack10 Capture-The-Flag 2026</li>
-      <li><span class="yr-badge">2026</span>TechTrail: Google Malaysia Industry Visit</li>
-      <li><span class="yr-badge">2026</span>CTF 3.0 — UniSZA-UMK-UMT</li>
       <li><span class="yr-badge">2025</span>Programme Director — EXACAB (collaborated with UNIBI & UMTAS, Indonesia)</li>
       <li><span class="yr-badge">2025</span>Top 5 Malaysia Round — ASEAN China-India Youth Leadership Summit (ACIYLS)</li>
-      <li><span class="yr-badge">2025</span>Anugerah Terbaik Program Sarjana Muda Sains Komputer (Keselamatan Rangkaian Komputer)</li>
-      <li><span class="yr-badge">2025</span>Anugerah Dekan — Semester I & II 2024/2025</li>
+      <li><span class="yr-badge">2025</span>Sekretariat — Persatuan Mahasiswa Fakulti Informatik dan Komputeran 2025/2026</li>
       <li><span class="yr-badge">2024</span>Program Mobiliti Berkredit Outbound — Jakarta, Indonesia (UPNVJ)</li>
       <li><span class="yr-badge">2024</span>Head of Exco Kesenian & Kebudayaan — Persatuan Mahasiswa FIK 2024/2025</li>
-      <li><span class="yr-badge">2024</span>Anugerah Dekan — Semester II 2023/2024</li>
+      <li><span class="yr-badge">2024</span>Exco Kebajikan, Keselamatan & Integrasi — UniSZA Green Advocates Association</li>
       <li><span class="yr-badge">2024</span>Vice Director — Appreciation Night & Jalinan Kasih 7.0 by ICS</li>
+      <li><span class="yr-badge">2024</span>Facilitator — Urayvom Uyarthuvom Camp, SJK (T) Pulau Cerry Barat</li>
       <li><span class="yr-badge">2023</span>Exco Publicity — Indian Cultural Society 2023/2024</li>
     </ul>
   </div>
