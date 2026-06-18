@@ -65,7 +65,7 @@
     #hero {
       min-height: auto;
       display: flex; align-items: center; justify-content: center;
-      padding: 110px 3rem 5rem; text-align: center;
+      padding: 100px 3rem 1.5rem; text-align: center;
       background: linear-gradient(160deg, #ffffff 0%, #f0f2ff 50%, #fff5f8 100%);
       position: relative; overflow: hidden;
     }
@@ -161,7 +161,7 @@
     .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
     /* SECTION WRAPPER */
-    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-wrap { max-width: 1300px; margin: 0 auto; padding: 2rem 3rem; }
     .section-label {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
@@ -173,7 +173,7 @@
       font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
       letter-spacing: -0.02em; margin-bottom: 0.75rem; line-height: 1.2;
     }
-    .section-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 560px; }
+    .section-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.25rem; max-width: 620px; }
     h2 em { font-style: normal; color: var(--primary); }
 
     /* CARDS */
@@ -237,7 +237,7 @@
 
     /* SKILLS */
     .skills-section { background: linear-gradient(180deg, transparent, rgba(91,108,240,0.03), transparent); }
-    .skill-bar-wrap { margin-bottom: 1.1rem; }
+    .skill-bar-wrap { margin-bottom: 0.9rem; }
     .skill-bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); }
     .skill-pct { color: var(--text-muted); font-weight: 500; font-size: 0.8rem; }
     .bar-track { height: 8px; background: var(--primary-light); border-radius: 10px; overflow: hidden; }
@@ -442,10 +442,18 @@
 
 <!-- CAREER -->
 <div class="section-wrap" id="career">
-  <div class="reveal">
+  <div class="reveal" style="margin-bottom:1.25rem;">
     <div class="section-label">01 — Career Exploration</div>
     <h2>Understanding the <em>Field</em></h2>
-    <p class="section-subtitle">Why Cybersecurity Analyst — and why it matters now more than ever.</p>
+    <p class="section-subtitle" style="margin-bottom:0;">My chosen path: Cybersecurity Analyst — the line of defence between organisations and the threats trying to break in.</p>
+  </div>
+
+  <div class="card reveal" style="margin-bottom:1.25rem;">
+    <div class="card-icon icon-blue">🛡️</div>
+    <div class="card-title">What does a Cybersecurity Analyst do?</div>
+    <p class="card-body">
+      In short — they keep an organisation's systems safe. A Cybersecurity Analyst watches networks for suspicious activity, investigates incidents when something goes wrong, and patches weak points before attackers find them. With cybercrime rising fast across Malaysia's banking, aviation, and healthcare sectors, this is one of the most in-demand jobs in tech today — and exactly where my network security and forensics training has been leading me.
+    </p>
   </div>
 
   <div class="stat-grid-4 reveal">
@@ -455,42 +463,7 @@
     <div class="stat-card"><div class="stat-num" style="color:var(--amber);">#1</div><div class="stat-label">In-Demand IT Role 2025</div></div>
   </div>
 
-  <div class="card reveal" style="margin-bottom:1.5rem;">
-    <div class="card-icon icon-blue">🛡️</div>
-    <div class="card-title">What does a Cybersecurity Analyst do?</div>
-    <p class="card-body">
-      In short: they're the people who keep an organisation's systems safe. A Cybersecurity Analyst watches networks for suspicious activity, investigates incidents when something goes wrong, and fixes weak points before attackers find them. With cybercrime rising fast across Malaysia's banking, aviation, and healthcare sectors, this role has become one of the most in-demand jobs in tech today — and it's exactly where my network security and forensics training has been leading me.
-    </p>
-  </div>
-
-  <div class="two-col reveal">
-    <div class="card">
-      <div class="card-icon icon-teal">✅</div>
-      <div class="card-title">Key Responsibilities</div>
-      <ul class="item-list">
-        <li>Monitor networks for threats & intrusions</li>
-        <li>Run vulnerability assessments & pen tests</li>
-        <li>Investigate & respond to incidents</li>
-        <li>Track malware and threat intelligence</li>
-        <li>Perform digital forensics investigations</li>
-        <li>Write clear security reports</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-icon icon-pink">💼</div>
-      <div class="card-title">Skills the Industry Expects</div>
-      <ul class="item-list">
-        <li>SIEM tools — Splunk, QRadar</li>
-        <li>Packet analysis — Wireshark, tcpdump</li>
-        <li>Pen testing — Metasploit, Burp Suite</li>
-        <li>Scripting — Python, Bash</li>
-        <li>Cloud security — AWS, Azure</li>
-        <li>Forensics — Autopsy, FTK Imager</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card reveal" style="margin-top:1.5rem;">
+  <div class="card reveal" style="margin-bottom:1.25rem;">
     <div class="card-icon icon-amber">🚀</div>
     <div class="card-title">My Career Path</div>
     <div class="path-grid">
@@ -519,16 +492,43 @@
       </div>
     </div>
   </div>
+
+  <div class="two-col reveal">
+    <div class="card">
+      <div class="card-icon icon-teal">✅</div>
+      <div class="card-title">Key Responsibilities</div>
+      <ul class="item-list">
+        <li>Monitor networks for threats & intrusions</li>
+        <li>Run vulnerability assessments & pen tests</li>
+        <li>Investigate & respond to incidents</li>
+        <li>Track malware and threat intelligence</li>
+        <li>Perform digital forensics investigations</li>
+        <li>Write clear security reports</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon icon-pink">💼</div>
+      <div class="card-title">Skills the Industry Expects</div>
+      <ul class="item-list">
+        <li>SIEM tools — Splunk, QRadar</li>
+        <li>Packet analysis — Wireshark, tcpdump</li>
+        <li>Pen testing — Metasploit, Burp Suite</li>
+        <li>Scripting — Python, Bash</li>
+        <li>Cloud security — AWS, Azure</li>
+        <li>Forensics — Autopsy, FTK Imager</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="divider"></div>
 
 <!-- SKILLS -->
 <div class="section-wrap skills-section" id="skills">
-  <div class="reveal">
+  <div class="reveal" style="margin-bottom:1.25rem;">
     <div class="section-label">02 — Personal Skills Assessment</div>
     <h2>Know Your <em>Strengths</em></h2>
-    <p class="section-subtitle">An honest look at where I am today — and where I'm heading.</p>
+    <p class="section-subtitle" style="margin-bottom:0;">An honest look at where I am today — and where I'm heading.</p>
   </div>
   <div class="two-col">
     <div class="card reveal">
@@ -571,53 +571,119 @@
         <div class="bar-track"><div class="bar-fill bar-teal" data-width="30"></div></div>
       </div>
     </div>
-    <div>
-      <div class="card reveal" style="margin-bottom:1.25rem;">
-        <div class="card-icon icon-pink">🌟</div>
-        <div class="card-title">Soft Skills</div>
-        <div>
-          <span class="soft-tag">🧩 Analytical Thinking</span>
-          <span class="soft-tag">🎯 Leadership</span>
-          <span class="soft-tag">🤝 Teamwork</span>
-          <span class="soft-tag">📝 Report Writing</span>
-          <span class="soft-tag">💬 Trilingual</span>
-          <span class="soft-tag">⏱️ Time Management</span>
-          <span class="soft-tag">🔍 Critical Thinking</span>
-          <span class="soft-tag">🌏 Cross-cultural Collab</span>
-          <span class="soft-tag">🎤 Programme Direction</span>
-          <span class="soft-tag">🧘 Calm Under Pressure</span>
-        </div>
+    <div class="card reveal">
+      <div class="card-icon icon-pink">🌟</div>
+      <div class="card-title">Soft Skills</div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">🎯 Leadership <span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-pink" data-width="85"></div></div>
       </div>
-      <div class="card reveal">
-        <div class="card-icon icon-teal">🛠️</div>
-        <div class="card-title">Tools & Technologies</div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">🤝 Teamwork & Collaboration <span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-pink" data-width="85"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">💬 Communication (Trilingual) <span class="skill-pct">80%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="80"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">🧩 Analytical & Critical Thinking <span class="skill-pct">80%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="80"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">🌏 Cross-cultural Collaboration <span class="skill-pct">75%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="75"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">📝 Report Writing <span class="skill-pct">70%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="70"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">⏱️ Time Management <span class="skill-pct">70%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-pink" data-width="70"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">🧘 Calm Under Pressure <span class="skill-pct">65%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="65"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-top:1.25rem;">
+    <div class="card-icon icon-teal">🛠️</div>
+    <div class="card-title">Tools & Technologies</div>
+    <div class="tools-cat-grid">
+      <div class="tools-cat">
+        <div class="tools-cat-label">Network Analysis & Simulation</div>
         <ul class="item-list">
-          <li>Wireshark — Network traffic analysis</li>
-          <li>Cisco Packet Tracer / GNS3 — Simulation</li>
-          <li>Autopsy / FTK Imager — Digital forensics</li>
-          <li>Kali Linux / Metasploit — Pen testing</li>
-          <li>Arduino IDE — IoT development</li>
-          <li>MySQL / GitHub / VS Code — Dev tools</li>
+          <li>Wireshark — packet capture & traffic analysis</li>
+          <li>Cisco Packet Tracer — network simulation</li>
+          <li>GNS3 — advanced network simulation</li>
+        </ul>
+      </div>
+      <div class="tools-cat">
+        <div class="tools-cat-label">Penetration Testing</div>
+        <ul class="item-list">
+          <li>Kali Linux — pen testing operating system</li>
+          <li>Metasploit — exploitation framework</li>
+        </ul>
+      </div>
+      <div class="tools-cat">
+        <div class="tools-cat-label">Digital Forensics</div>
+        <ul class="item-list">
+          <li>Autopsy — digital forensics platform</li>
+          <li>FTK Imager — disk imaging & evidence capture</li>
+        </ul>
+      </div>
+      <div class="tools-cat">
+        <div class="tools-cat-label">Development & Database</div>
+        <ul class="item-list">
+          <li>Java — object-oriented programming</li>
+          <li>Python — scripting & automation</li>
+          <li>MySQL — database management</li>
+        </ul>
+      </div>
+      <div class="tools-cat">
+        <div class="tools-cat-label">IoT & Hardware</div>
+        <ul class="item-list">
+          <li>Arduino IDE — microcontroller programming</li>
+        </ul>
+      </div>
+      <div class="tools-cat">
+        <div class="tools-cat-label">Workflow & Version Control</div>
+        <ul class="item-list">
+          <li>VS Code — code editor</li>
+          <li>GitHub — version control & hosting</li>
+          <li>Microsoft Office — documentation & reporting</li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="card reveal" style="margin-top:1.5rem;">
+
+  <div class="card reveal" style="margin-top:1.25rem;">
     <div class="card-icon icon-amber">📋</div>
     <div class="card-title">Skills Gap Analysis — Current vs Industry Requirements</div>
     <table class="gap-table">
       <thead><tr><th>Skill Area</th><th>Industry Requirement</th><th>My Level</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Network Analysis</td><td>Wireshark, tcpdump — proficient</td><td>Intermediate-Advanced</td><td><span class="pill pill-green">Strong ✓</span></td></tr>
+        <tr><td>Network Analysis</td><td>Wireshark, tcpdump, Nmap</td><td>Intermediate-Advanced</td><td><span class="pill pill-green">Strong</span></td></tr>
         <tr><td>Penetration Testing</td><td>Metasploit, Burp Suite, OWASP</td><td>Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
         <tr><td>Digital Forensics</td><td>Autopsy, FTK — evidence handling</td><td>Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
         <tr><td>SIEM Tools</td><td>Splunk, QRadar, Sentinel</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
         <tr><td>Cloud Security</td><td>AWS / Azure fundamentals</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
         <tr><td>Python / Scripting</td><td>Automation & custom tooling</td><td>Beginner-Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
         <tr><td>Certifications</td><td>Security+, CEH, OSCP</td><td>Security+ & CCNA training done</td><td><span class="pill pill-amber">In Progress</span></td></tr>
-        <tr><td>Blockchain Security</td><td>Smart contract & Web3 auditing</td><td>FYP-level applied knowledge</td><td><span class="pill pill-green">Unique Edge ✓</span></td></tr>
+        <tr><td>Blockchain Security</td><td>Smart contract & Web3 auditing</td><td>FYP-level applied knowledge</td><td><span class="pill pill-green">Unique Edge</span></td></tr>
       </tbody>
     </table>
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.9rem;">
+      <strong style="color:var(--text);">Status guide:</strong>
+      <span class="pill pill-green" style="margin:0 0.3rem;">Strong</span> already solid &nbsp;·&nbsp;
+      <span class="pill pill-blue" style="margin:0 0.3rem;">Developing</span> learning & improving &nbsp;·&nbsp;
+      <span class="pill pill-amber" style="margin:0 0.3rem;">In Progress</span> certification underway &nbsp;·&nbsp;
+      <span class="pill pill-red" style="margin:0 0.3rem;">To Learn</span> not started yet &nbsp;·&nbsp;
+      <span class="pill pill-green" style="margin:0 0.3rem;">Unique Edge</span> not commonly taught — sets me apart from other fresh graduates
+    </p>
   </div>
 </div>
 
