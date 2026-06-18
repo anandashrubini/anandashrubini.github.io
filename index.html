@@ -245,6 +245,7 @@
     .bar-blue { background: linear-gradient(90deg, var(--primary), #818CF8); }
     .bar-teal { background: linear-gradient(90deg, var(--teal), #34d399); }
     .bar-pink { background: linear-gradient(90deg, var(--secondary), #f472b6); }
+    .bar-amber { background: linear-gradient(90deg, var(--amber), #fbbf24); }
     .soft-tag {
       display: inline-block; margin: 0.25rem;
       padding: 0.4rem 0.9rem; font-size: 0.8rem; font-weight: 600;
@@ -263,6 +264,14 @@
     .pill-blue { background: var(--primary-light); color: var(--primary); }
     .pill-red { background: #fee2e2; color: #991b1b; }
     .pill-amber { background: var(--amber-light); color: #92400e; }
+    .pill-purple { background: #f0edff; color: #6d28d9; }
+    .status-guide {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.5rem;
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 1rem;
+      padding-top: 0.9rem; border-top: 1px solid var(--border);
+    }
+    .status-guide-label { font-weight: 700; color: var(--text); margin-right: 0.25rem; }
+    .status-guide-item { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
 
     /* PLAN / TIMELINE */
     .timeline { position: relative; padding-left: 2.5rem; }
@@ -290,6 +299,14 @@
     .ev-type { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
     .ev-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.4rem; line-height: 1.4; }
     .ev-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+    .tools-cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .tools-cat {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1rem 1.1rem;
+    }
+    .tools-cat-label { font-size: 0.78rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem; }
+    .tools-cat .item-list li { font-size: 0.83rem; padding: 0.35rem 0; }
+
     .ach-list { list-style: none; }
     .ach-list li { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--text-muted); }
     .ach-list li:last-child { border-bottom: none; }
@@ -383,6 +400,7 @@
 
     @media (max-width: 768px) {
       .career-grid, .two-col, .stat-grid, .ev-grid, .ref-grid, .sw-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
+      .tools-cat-grid { grid-template-columns: 1fr 1fr; }
       .stat-grid-4 { grid-template-columns: repeat(2, 1fr); }
       .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -536,27 +554,27 @@
       <div class="card-title">Technical Skills</div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Networking Fundamentals (TCP/IP, Routing) <span class="skill-pct">80%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-blue" data-width="80"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="80"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Wireshark / Packet Analysis <span class="skill-pct">75%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-blue" data-width="75"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="75"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Penetration Testing & Vulnerability Assessment <span class="skill-pct">65%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-pink" data-width="65"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="65"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Computer Forensics (Autopsy, FTK Imager) <span class="skill-pct">65%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-pink" data-width="65"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="65"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Linux / Kali Linux <span class="skill-pct">65%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-teal" data-width="65"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="65"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Blockchain / Decentralised Systems <span class="skill-pct">60%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-teal" data-width="60"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="60"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">Python / Java Programming <span class="skill-pct">55%</span></div>
@@ -564,11 +582,11 @@
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">IoT Development & Sensor Integration <span class="skill-pct">55%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-pink" data-width="55"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="55"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">SIEM Tools (Splunk, QRadar) <span class="skill-pct">30%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-teal" data-width="30"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-amber" data-width="30"></div></div>
       </div>
     </div>
     <div class="card reveal">
@@ -576,19 +594,19 @@
       <div class="card-title">Soft Skills</div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">🎯 Leadership <span class="skill-pct">85%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-pink" data-width="85"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="85"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">🤝 Teamwork & Collaboration <span class="skill-pct">85%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-pink" data-width="85"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="85"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">💬 Communication (Trilingual) <span class="skill-pct">80%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-blue" data-width="80"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="80"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">🧩 Analytical & Critical Thinking <span class="skill-pct">80%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-blue" data-width="80"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="80"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">🌏 Cross-cultural Collaboration <span class="skill-pct">75%</span></div>
@@ -596,11 +614,11 @@
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">📝 Report Writing <span class="skill-pct">70%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-teal" data-width="70"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="70"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">⏱️ Time Management <span class="skill-pct">70%</span></div>
-        <div class="bar-track"><div class="bar-fill bar-pink" data-width="70"></div></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="70"></div></div>
       </div>
       <div class="skill-bar-wrap">
         <div class="skill-bar-label">🧘 Calm Under Pressure <span class="skill-pct">65%</span></div>
@@ -666,24 +684,24 @@
     <table class="gap-table">
       <thead><tr><th>Skill Area</th><th>Industry Requirement</th><th>My Level</th><th>Status</th></tr></thead>
       <tbody>
+        <tr><td>Blockchain Security</td><td>Smart contract & Web3 auditing</td><td>FYP-level applied knowledge</td><td><span class="pill pill-purple">Unique Edge</span></td></tr>
         <tr><td>Network Analysis</td><td>Wireshark, tcpdump, Nmap</td><td>Intermediate-Advanced</td><td><span class="pill pill-green">Strong</span></td></tr>
         <tr><td>Penetration Testing</td><td>Metasploit, Burp Suite, OWASP</td><td>Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
         <tr><td>Digital Forensics</td><td>Autopsy, FTK — evidence handling</td><td>Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
-        <tr><td>SIEM Tools</td><td>Splunk, QRadar, Sentinel</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
-        <tr><td>Cloud Security</td><td>AWS / Azure fundamentals</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
         <tr><td>Python / Scripting</td><td>Automation & custom tooling</td><td>Beginner-Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
         <tr><td>Certifications</td><td>Security+, CEH, OSCP</td><td>Security+ & CCNA training done</td><td><span class="pill pill-amber">In Progress</span></td></tr>
-        <tr><td>Blockchain Security</td><td>Smart contract & Web3 auditing</td><td>FYP-level applied knowledge</td><td><span class="pill pill-green">Unique Edge</span></td></tr>
+        <tr><td>SIEM Tools</td><td>Splunk, QRadar, Sentinel</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
+        <tr><td>Cloud Security</td><td>AWS / Azure fundamentals</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
       </tbody>
     </table>
-    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.9rem;">
-      <strong style="color:var(--text);">Status guide:</strong>
-      <span class="pill pill-green" style="margin:0 0.3rem;">Strong</span> already solid &nbsp;·&nbsp;
-      <span class="pill pill-blue" style="margin:0 0.3rem;">Developing</span> learning & improving &nbsp;·&nbsp;
-      <span class="pill pill-amber" style="margin:0 0.3rem;">In Progress</span> certification underway &nbsp;·&nbsp;
-      <span class="pill pill-red" style="margin:0 0.3rem;">To Learn</span> not started yet &nbsp;·&nbsp;
-      <span class="pill pill-green" style="margin:0 0.3rem;">Unique Edge</span> not commonly taught — sets me apart from other fresh graduates
-    </p>
+    <div class="status-guide">
+      <span class="status-guide-label">Status guide:</span>
+      <span class="status-guide-item"><span class="pill pill-purple">Unique Edge</span> not commonly taught — sets me apart</span>
+      <span class="status-guide-item"><span class="pill pill-green">Strong</span> already solid</span>
+      <span class="status-guide-item"><span class="pill pill-blue">Developing</span> learning & improving</span>
+      <span class="status-guide-item"><span class="pill pill-amber">In Progress</span> certification underway</span>
+      <span class="status-guide-item"><span class="pill pill-red">To Learn</span> not started yet</span>
+    </div>
   </div>
 </div>
 
