@@ -4,358 +4,325 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anandashrubini Seevagan | Cybersecurity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #060a0f;
-      --bg2: #0c1219;
-      --bg3: #111a24;
-      --accent: #00e5ff;
-      --accent2: #ff4081;
-      --accent3: #69ff47;
-      --text: #e8f0f7;
-      --muted: #7a9bb5;
-      --border: rgba(0,229,255,0.15);
-      --card: rgba(12,18,25,0.85);
-      --glow: 0 0 30px rgba(0,229,255,0.15);
+      --primary: #5B6CF0;
+      --primary-light: #EEF0FE;
+      --primary-dark: #3A47CC;
+      --secondary: #FF6B9D;
+      --secondary-light: #FFF0F5;
+      --teal: #1D9E75;
+      --teal-light: #E1F5EE;
+      --amber: #EF9F27;
+      --amber-light: #FAEEDA;
+      --coral: #D85A30;
+      --coral-light: #FAECE7;
+      --text: #1a1a2e;
+      --text-muted: #6b7280;
+      --bg: #f8f9ff;
+      --white: #ffffff;
+      --border: #e8eaf6;
+      --card-shadow: 0 2px 16px rgba(91,108,240,0.08);
+      --card-hover: 0 8px 32px rgba(91,108,240,0.15);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Syne', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.7;
       overflow-x: hidden;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
     }
 
     /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(6,10,15,0.92);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem; height: 68px;
+      box-shadow: 0 2px 20px rgba(91,108,240,0.06);
     }
     .nav-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-decoration: none;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--primary); text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--secondary); display: inline-block; }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
     .nav-links a {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-      font-family: 'Space Mono', monospace;
+      font-size: 0.875rem; font-weight: 600;
+      color: var(--text-muted); text-decoration: none;
+      padding: 0.5rem 0.9rem; border-radius: 20px;
+      transition: all 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { background: var(--primary-light); color: var(--primary); }
 
     /* HERO */
     #hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 100px 2rem 4rem;
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-    .hero-glow {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .profile-photo {
-      width: 130px; height: 130px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 30px rgba(0,229,255,0.3);
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.1s forwards;
-    }
-    /* Placeholder avatar if no photo */
-    .avatar-placeholder {
-      width: 130px; height: 130px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 30px rgba(0,229,255,0.3);
-      background: linear-gradient(135deg, #0c1219, #1a2a3a);
       display: flex; align-items: center; justify-content: center;
-      font-size: 3rem;
-      margin: 0 auto 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.1s forwards;
+      padding: 100px 2rem 4rem; text-align: center;
+      background: linear-gradient(160deg, #ffffff 0%, #f0f2ff 50%, #fff5f8 100%);
+      position: relative; overflow: hidden;
     }
-    .tag-line {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.2s forwards;
+    .hero-blob {
+      position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.25; pointer-events: none;
     }
+    .blob1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; }
+    .blob2 { width: 300px; height: 300px; background: var(--secondary); bottom: -50px; left: -50px; }
+    .blob3 { width: 200px; height: 200px; background: var(--teal); top: 40%; left: 10%; }
+    .hero-inner { position: relative; z-index: 1; }
+    .profile-photo {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 4px solid white; box-shadow: 0 8px 32px rgba(91,108,240,0.2);
+      object-fit: cover; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    .avatar-placeholder {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 4px solid white; box-shadow: 0 8px 32px rgba(91,108,240,0.2);
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; margin: 0 auto 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--primary-light); color: var(--primary);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 20px;
+      margin-bottom: 1.25rem;
+      opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+    .hero-chip .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
     h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.4s forwards;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 0.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
     }
-    h1 span { color: var(--accent); }
-    .hero-sub {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 580px;
-      margin: 0 auto 0.75rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.6s forwards;
+    h1 .name-highlight { color: var(--primary); }
+    .hero-role {
+      font-size: 1.15rem; color: var(--text-muted); font-weight: 500;
+      margin-bottom: 0.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards;
     }
     .hero-cgpa {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--accent3);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.65s forwards;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, #fff8e1, #fff3f0);
+      border: 1px solid #fce4b3; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 600; color: #b45309;
+      padding: 0.35rem 1rem; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards;
     }
     .hero-badges {
-      display: flex; flex-wrap: wrap; gap: 0.75rem;
-      justify-content: center; margin-bottom: 3rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.8s forwards;
+      display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards;
     }
     .badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      padding: 0.4rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      background: rgba(0,229,255,0.04);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 20px;
+      border: 1.5px solid transparent;
     }
+    .badge-blue { background: var(--primary-light); color: var(--primary); border-color: #c7cdf9; }
+    .badge-pink { background: var(--secondary-light); color: #be185d; border-color: #f9c0d8; }
+    .badge-teal { background: var(--teal-light); color: var(--teal); border-color: #9fe1cb; }
+    .badge-amber { background: var(--amber-light); color: #92400e; border-color: #fac775; }
     .cta-row {
       display: flex; gap: 1rem; justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 1s forwards;
+      opacity: 0; animation: fadeUp 0.7s ease 0.9s forwards;
     }
     .btn {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      padding: 0.85rem 2rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: all 0.2s;
-      text-transform: uppercase;
+      font-size: 0.9rem; font-weight: 700; padding: 0.85rem 2rem;
+      border-radius: 50px; text-decoration: none; transition: all 0.25s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
     }
-    .btn-primary { background: var(--accent); color: var(--bg); border: 1px solid var(--accent); }
-    .btn-primary:hover { background: transparent; color: var(--accent); }
-    .btn-outline { border: 1px solid var(--border); color: var(--muted); }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 16px rgba(91,108,240,0.35); }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,108,240,0.4); }
+    .btn-outline { border: 2px solid var(--border); color: var(--text-muted); background: white; }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
-    /* SECTIONS */
-    section {
-      padding: 6rem 2rem;
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    /* SECTION WRAPPER */
+    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
     .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--primary);
+      background: var(--primary-light); padding: 0.35rem 1rem;
+      border-radius: 20px; margin-bottom: 1rem;
     }
     h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 3rem;
-      line-height: 1.1;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 0.75rem; line-height: 1.2;
     }
-    h2 em { font-style: normal; color: var(--accent); }
+    .section-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 560px; }
+    h2 em { font-style: normal; color: var(--primary); }
 
     /* CARDS */
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .card:hover { border-color: rgba(0,229,255,0.4); box-shadow: var(--glow); }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--card-hover); }
+    .card-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 1rem;
+    }
+    .icon-blue { background: var(--primary-light); }
+    .icon-pink { background: var(--secondary-light); }
+    .icon-teal { background: var(--teal-light); }
+    .icon-amber { background: var(--amber-light); }
+    .icon-coral { background: var(--coral-light); }
+
+    /* SECTION DIVIDER */
+    .divider {
+      height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: 1100px; margin: 0 auto;
+    }
 
     /* CAREER */
-    .career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .career-main { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: start; }
-    .role-title { font-size: 1.4rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; }
-    .role-body { color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
-    ul.skill-list { list-style: none; padding: 0; }
-    ul.skill-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-      color: var(--muted);
+    .career-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.25rem; text-align: center;
+      box-shadow: var(--card-shadow);
+    }
+    .stat-num { font-size: 2rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+    .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .card-body { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }
+    ul.item-list { list-style: none; }
+    ul.item-list li {
+      padding: 0.55rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.88rem; color: var(--text-muted);
       display: flex; align-items: center; gap: 0.6rem;
     }
-    ul.skill-list li::before { content: '▸'; color: var(--accent); font-size: 0.7rem; }
-    .stat-card { text-align: center; padding: 1.5rem; }
-    .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--accent); font-family: 'Space Mono', monospace; line-height: 1; }
-    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.05em; }
+    ul.item-list li:last-child { border-bottom: none; }
+    ul.item-list li::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
     /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .skill-category-title {
-      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent2); font-family: 'Space Mono', monospace; margin-bottom: 1.5rem;
+    .skills-section { background: linear-gradient(180deg, transparent, rgba(91,108,240,0.03), transparent); }
+    .skill-bar-wrap { margin-bottom: 1.1rem; }
+    .skill-bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); }
+    .skill-pct { color: var(--text-muted); font-weight: 500; font-size: 0.8rem; }
+    .bar-track { height: 8px; background: var(--primary-light); border-radius: 10px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 10px; width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .bar-blue { background: linear-gradient(90deg, var(--primary), #818CF8); }
+    .bar-teal { background: linear-gradient(90deg, var(--teal), #34d399); }
+    .bar-pink { background: linear-gradient(90deg, var(--secondary), #f472b6); }
+    .soft-tag {
+      display: inline-block; margin: 0.25rem;
+      padding: 0.4rem 0.9rem; font-size: 0.8rem; font-weight: 600;
+      border-radius: 20px; border: 1.5px solid var(--border);
+      background: var(--white); color: var(--text);
+      transition: all 0.2s;
     }
-    .skill-bar-wrap { margin-bottom: 1.2rem; }
-    .skill-bar-label { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.4rem; color: var(--text); }
-    .skill-bar-label span { color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.75rem; }
-    .bar-track { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent3)); width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
-    .soft-skill-tag {
-      display: inline-block; margin: 0.3rem; padding: 0.45rem 1rem;
-      font-size: 0.8rem; border: 1px solid var(--border); border-radius: 2px;
-      color: var(--text); background: rgba(255,255,255,0.03);
-    }
+    .soft-tag:hover { background: var(--primary-light); border-color: #c7cdf9; color: var(--primary); }
     .gap-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-    .gap-table th {
-      text-align: left; padding: 0.75rem 1rem;
-      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); border-bottom: 1px solid var(--border); font-family: 'Space Mono', monospace;
-    }
-    .gap-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--muted); }
-    .gap-table td:first-child { color: var(--text); }
-    .status { font-size: 0.72rem; padding: 0.25rem 0.6rem; border-radius: 2px; font-family: 'Space Mono', monospace; }
-    .status.have { background: rgba(105,255,71,0.1); color: var(--accent3); border: 1px solid rgba(105,255,71,0.2); }
-    .status.need { background: rgba(255,64,129,0.1); color: var(--accent2); border: 1px solid rgba(255,64,129,0.2); }
-    .status.partial { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
+    .gap-table th { text-align: left; padding: 0.75rem 1rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--border); }
+    .gap-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    .gap-table td:first-child { color: var(--text); font-weight: 600; }
+    .gap-table tr:hover td { background: var(--bg); }
+    .pill { font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 20px; display: inline-block; }
+    .pill-green { background: #d1fae5; color: #065f46; }
+    .pill-blue { background: var(--primary-light); color: var(--primary); }
+    .pill-red { background: #fee2e2; color: #991b1b; }
+    .pill-amber { background: var(--amber-light); color: #92400e; }
 
     /* PLAN / TIMELINE */
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
-      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent); border-radius: 2px; }
+    .tl-item { position: relative; margin-bottom: 2.5rem; }
+    .tl-dot { position: absolute; left: -2.15rem; top: 0.4rem; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); border: 3px solid var(--white); box-shadow: 0 0 0 3px var(--primary-light); }
+    .tl-year { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); background: var(--primary-light); display: inline-block; padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.5rem; }
+    .tl-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .tl-body { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .cert-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.25rem; text-align: center;
+      box-shadow: var(--card-shadow); transition: all 0.25s;
     }
-    .timeline-item { position: relative; margin-bottom: 2.5rem; padding-left: 1.5rem; }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -2.4rem; top: 0.4rem;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 10px var(--accent);
-    }
-    .timeline-year { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .timeline-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .timeline-body { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-    .cert-card { padding: 1.2rem; text-align: center; border: 1px solid var(--border); background: var(--card); border-radius: 4px; font-size: 0.82rem; }
+    .cert-card:hover { transform: translateY(-3px); box-shadow: var(--card-hover); }
     .cert-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .cert-name { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.25rem; }
-    .cert-timeline { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); }
+    .cert-name { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .cert-time { font-size: 0.72rem; font-weight: 600; color: var(--primary); background: var(--primary-light); display: inline-block; padding: 0.2rem 0.6rem; border-radius: 10px; }
 
     /* EVIDENCE */
-    .evidence-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .e-type { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.5rem; }
-    .evidence-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .evidence-card p { font-size: 0.85rem; color: var(--muted); }
-    .achievement-list { list-style: none; }
-    .achievement-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); display: flex; gap: 0.75rem; align-items: flex-start; }
-    .achievement-list li span.yr { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); min-width: 36px; margin-top: 0.15rem; }
+    .ev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .ev-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; box-shadow: var(--card-shadow); transition: all 0.25s; }
+    .ev-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover); }
+    .ev-type { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .ev-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.4rem; line-height: 1.4; }
+    .ev-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+    .ach-list { list-style: none; }
+    .ach-list li { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--text-muted); }
+    .ach-list li:last-child { border-bottom: none; }
+    .yr-badge { font-size: 0.7rem; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 0.15rem 0.5rem; border-radius: 8px; min-width: 38px; text-align: center; margin-top: 0.1rem; flex-shrink: 0; }
 
     /* REFLECTION */
-    .google-header {
-      display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem;
-      padding: 2rem; background: var(--card); border: 1px solid var(--border); border-radius: 4px;
+    .google-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 24px; padding: 2rem; margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 2rem;
+      box-shadow: var(--card-shadow);
     }
-    .google-logo { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.05em; }
-    .g { color: #4285F4; } .o1 { color: #EA4335; } .o2 { color: #FBBC04; }
-    .g2 { color: #4285F4; } .l { color: #34A853; } .e { color: #EA4335; }
-    .google-info h3 { font-size: 1.2rem; font-weight: 700; }
-    .google-info p { color: var(--muted); font-size: 0.88rem; }
-    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .reflection-q { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-    .reflection-a { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
-    .sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-    .sw-box { padding: 1.2rem; border-radius: 3px; font-size: 0.85rem; }
-    .sw-box.strength { background: rgba(105,255,71,0.06); border: 1px solid rgba(105,255,71,0.15); }
-    .sw-box.weakness { background: rgba(255,64,129,0.06); border: 1px solid rgba(255,64,129,0.15); }
-    .sw-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Space Mono', monospace; margin-bottom: 0.5rem; }
-    .sw-box.strength .sw-label { color: var(--accent3); }
-    .sw-box.weakness .sw-label { color: var(--accent2); }
-    ul.sw-list { list-style: none; }
-    ul.sw-list li { color: var(--muted); font-size: 0.85rem; padding: 0.2rem 0; }
+    .google-logo { font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; flex-shrink: 0; }
+    .g1{color:#4285F4}.g2{color:#EA4335}.g3{color:#FBBC04}.g4{color:#4285F4}.g5{color:#34A853}.g6{color:#EA4335}
+    .google-info h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .google-info p { font-size: 0.9rem; color: var(--text-muted); }
+    .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .ref-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 1.75rem; box-shadow: var(--card-shadow); transition: all 0.25s; }
+    .ref-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover); }
+    .ref-q { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; }
+    .ref-a { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; }
+    .sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+    .sw-box { border-radius: 20px; padding: 1.5rem; }
+    .sw-strength { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #bbf7d0; }
+    .sw-weakness { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fde68a; }
+    .sw-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .sw-strength .sw-label { color: #065f46; }
+    .sw-weakness .sw-label { color: #92400e; }
+    .sw-list { list-style: none; }
+    .sw-list li { font-size: 0.87rem; color: var(--text-muted); padding: 0.25rem 0; display: flex; gap: 0.5rem; align-items: flex-start; }
 
     /* FOOTER */
     footer {
+      background: var(--white); border-top: 1px solid var(--border);
       text-align: center; padding: 3rem 2rem;
-      border-top: 1px solid var(--border);
-      font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted);
-      position: relative; z-index: 1;
+      font-size: 0.85rem; color: var(--text-muted);
     }
-    footer span { color: var(--accent); }
+    footer strong { color: var(--primary); }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
 
     /* ANIMATIONS */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); max-width: 1100px; margin: 0 auto; }
 
     @media (max-width: 768px) {
-      .career-main, .career-grid, .skills-grid, .evidence-grid, .reflection-grid, .sw-grid { grid-template-columns: 1fr; }
-      .career-main { grid-template-columns: 1fr; }
+      .career-grid, .two-col, .stat-grid, .ev-grid, .ref-grid, .sw-grid, .cert-grid { grid-template-columns: 1fr; }
       nav { padding: 0 1rem; }
-      .nav-links { gap: 1rem; }
+      .nav-links { gap: 0; }
+      .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+      .google-card { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#hero">ANANDA // PORTFOLIO</a>
+  <a class="nav-logo" href="#hero"><span class="dot"></span> Anandashrubini.CS</a>
   <ul class="nav-links">
     <li><a href="#career">Career</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -367,55 +334,57 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-glow"></div>
-  <div>
-    <!-- PHOTO: Replace the emoji avatar below with your real photo.
-         Save your photo as "photo.jpg" in the same folder as index.html,
-         then replace the div below with:
-         <img src="photo.jpg" alt="Anandashrubini Seevagan" class="profile-photo"> -->
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-blob blob3"></div>
+  <div class="hero-inner">
+    <!-- Replace this div with: <img src="photo.jpg" alt="Anandashrubini" class="profile-photo"> -->
     <div class="avatar-placeholder">👩‍💻</div>
-
-    <p class="tag-line">// CSA30203 · Special Topics in Network Security · UniSZA</p>
-    <h1>Anandashrubini<br/><span>Seevagan</span></h1>
-    <p class="hero-sub">Bachelor of Computer Science (Network Security) · Cybersecurity Analyst in the making · Dean's Award recipient · CTF competitor</p>
-    <p class="hero-cgpa">⭐ CGPA 3.78 (Sem 5) · Anugerah Terbaik Program Sarjana Muda Sains Komputer</p>
+    <div class="hero-chip"><span class="chip-dot"></span> CSA30203 · Special Topics in Network Security · UniSZA</div>
+    <h1>Anandashrubini<br/><span class="name-highlight">Seevagan</span></h1>
+    <p class="hero-role">Bachelor of Computer Science (Network Security) · Aspiring Cybersecurity Analyst</p>
+    <div class="hero-cgpa">⭐ CGPA 3.78 · Anugerah Terbaik Program Sarjana Muda · Dean's Award Recipient</div>
     <div class="hero-badges">
-      <span class="badge">Network Security</span>
-      <span class="badge">Penetration Testing</span>
-      <span class="badge">Computer Forensics</span>
-      <span class="badge">Blockchain</span>
-      <span class="badge">Wireshark</span>
-      <span class="badge">CTF Competitor</span>
-      <span class="badge">Dean's Award</span>
+      <span class="badge badge-blue">Network Security</span>
+      <span class="badge badge-pink">Penetration Testing</span>
+      <span class="badge badge-teal">Computer Forensics</span>
+      <span class="badge badge-amber">Blockchain Research</span>
+      <span class="badge badge-blue">Wireshark</span>
+      <span class="badge badge-pink">CTF Competitor</span>
+      <span class="badge badge-teal">International Experience</span>
     </div>
     <div class="cta-row">
-      <a href="#career" class="btn btn-primary">Explore Portfolio</a>
+      <a href="#career" class="btn btn-primary">Explore Portfolio →</a>
       <a href="https://www.linkedin.com/in/anandashrubini-seevagan" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- CAREER -->
-<section id="career">
-  <p class="section-label reveal">// 01 — Career Exploration</p>
-  <h2 class="reveal">Understanding the <em>Field</em></h2>
-  <div class="career-main reveal">
+<div class="section-wrap" id="career">
+  <div class="reveal">
+    <div class="section-label">01 — Career Exploration</div>
+    <h2>Understanding the <em>Field</em></h2>
+    <p class="section-subtitle">Why Cybersecurity Analyst — and why it matters now more than ever.</p>
+  </div>
+  <div class="career-grid reveal">
     <div class="card">
-      <div class="role-title">🛡️ Cybersecurity Analyst</div>
-      <p class="role-body">
+      <div class="card-icon icon-blue">🛡️</div>
+      <div class="card-title">Cybersecurity Analyst</div>
+      <p class="card-body">
         A Cybersecurity Analyst protects an organisation's digital infrastructure by monitoring networks for threats, investigating security incidents, and implementing defensive controls. They sit at the intersection of technical expertise and strategic thinking — analysing attack patterns, conducting vulnerability assessments, and responding to breaches in real time.
         <br/><br/>
-        In today's landscape, cyber threats grow at an exponential rate — from ransomware targeting critical infrastructure to state-sponsored espionage. Malaysia's national cybersecurity framework and rapid digital transformation across banking, aviation, and healthcare sectors have made this one of the most in-demand roles in the country.
+        In today's landscape, cyber threats are growing at an exponential rate — from ransomware targeting critical infrastructure to state-sponsored espionage. Malaysia's national cybersecurity framework and rapid digital transformation across banking, aviation, and healthcare have made this one of the most in-demand roles in the country.
         <br/><br/>
-        My academic training at UniSZA in network security, forensics, and penetration testing — combined with real CTF competition experience and a Final Year Project in blockchain-based secure evidence sharing — gives me a strong and differentiated foundation for this career.
+        My academic training at UniSZA in network security, forensics, and penetration testing — combined with real CTF experience and a Final Year Project in blockchain-based secure evidence sharing — gives me a strong, differentiated foundation for this career.
       </p>
     </div>
     <div>
-      <div class="card" style="margin-bottom:1.5rem;">
-        <p class="skill-category-title" style="color:var(--accent);">Key Responsibilities</p>
-        <ul class="skill-list">
+      <div class="card" style="margin-bottom:1.25rem;">
+        <div class="card-title" style="font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Key Responsibilities</div>
+        <ul class="item-list">
           <li>Monitor SIEM tools for anomalies & intrusions</li>
           <li>Conduct vulnerability assessments & pen tests</li>
           <li>Investigate & respond to security incidents</li>
@@ -427,331 +396,336 @@
       </div>
     </div>
   </div>
-  <div class="career-grid reveal" style="margin-top:1.5rem;">
+  <div class="two-col reveal">
     <div class="card">
-      <p class="skill-category-title" style="color:var(--accent2);">Technical Skills Required by Industry</p>
-      <ul class="skill-list">
+      <div class="card-icon icon-pink">💼</div>
+      <div class="card-title">Technical Skills Required</div>
+      <ul class="item-list">
         <li>SIEM tools — Splunk, IBM QRadar, Sentinel</li>
         <li>Network packet analysis — Wireshark, tcpdump</li>
         <li>Scripting — Python, Bash automation</li>
-        <li>Pen testing frameworks — Metasploit, Burp Suite</li>
+        <li>Pen testing — Metasploit, Burp Suite</li>
         <li>Firewall & IDS/IPS configuration</li>
-        <li>Cloud security — AWS, Azure fundamentals</li>
+        <li>Cloud security — AWS, Azure</li>
         <li>Digital forensics — Autopsy, FTK Imager</li>
       </ul>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-      <div class="card stat-card"><div class="stat-num">RM5K+</div><div class="stat-label">Avg. Monthly Salary (MY)</div></div>
-      <div class="card stat-card"><div class="stat-num">32%</div><div class="stat-label">Global Job Growth Rate</div></div>
-      <div class="card stat-card"><div class="stat-num">3.5M</div><div class="stat-label">Global Talent Shortage</div></div>
-      <div class="card stat-card"><div class="stat-num">#1</div><div class="stat-label">Most In-Demand IT Role 2025</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num" style="color:var(--primary);">RM5K+</div><div class="stat-label">Avg. Monthly Salary in Malaysia</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--secondary);">32%</div><div class="stat-label">Global Job Growth Rate</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--teal);">3.5M</div><div class="stat-label">Global Talent Shortage</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--amber);">#1</div><div class="stat-label">Most In-Demand IT Role 2025</div></div>
     </div>
   </div>
-</section>
+</div>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- SKILLS -->
-<section id="skills">
-  <p class="section-label reveal">// 02 — Personal Skills Assessment</p>
-  <h2 class="reveal">Know Your <em>Strengths</em></h2>
-  <div class="skills-grid">
+<div class="section-wrap skills-section" id="skills">
+  <div class="reveal">
+    <div class="section-label">02 — Personal Skills Assessment</div>
+    <h2>Know Your <em>Strengths</em></h2>
+    <p class="section-subtitle">An honest look at where I am today — and where I'm heading.</p>
+  </div>
+  <div class="two-col">
     <div class="card reveal">
-      <p class="skill-category-title">Technical Skills (Honest Self-Assessment)</p>
+      <div class="card-icon icon-blue">📊</div>
+      <div class="card-title">Technical Skills</div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Networking Fundamentals (TCP/IP, Routing, Switching) <span>80%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
+        <div class="skill-bar-label">Networking Fundamentals (TCP/IP, Routing) <span class="skill-pct">80%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="80"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Wireshark / Packet Analysis <span>75%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
+        <div class="skill-bar-label">Wireshark / Packet Analysis <span class="skill-pct">75%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="75"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Penetration Testing & Vulnerability Assessment <span>65%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
+        <div class="skill-bar-label">Penetration Testing & Vulnerability Assessment <span class="skill-pct">65%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-pink" data-width="65"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Computer Forensics (Autopsy, FTK Imager) <span>65%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
+        <div class="skill-bar-label">Computer Forensics (Autopsy, FTK Imager) <span class="skill-pct">65%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-pink" data-width="65"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Linux / Kali Linux <span>65%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
+        <div class="skill-bar-label">Linux / Kali Linux <span class="skill-pct">65%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="65"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Blockchain / Decentralised Systems <span>60%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="60"></div></div>
+        <div class="skill-bar-label">Blockchain / Decentralised Systems <span class="skill-pct">60%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="60"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">Python / Java Programming <span>55%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="55"></div></div>
+        <div class="skill-bar-label">Python / Java Programming <span class="skill-pct">55%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" data-width="55"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">IoT Development & Sensor Integration <span>55%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="55"></div></div>
+        <div class="skill-bar-label">IoT Development & Sensor Integration <span class="skill-pct">55%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-pink" data-width="55"></div></div>
       </div>
       <div class="skill-bar-wrap">
-        <div class="skill-bar-label">SIEM Tools (Splunk, QRadar) <span>30%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="30"></div></div>
+        <div class="skill-bar-label">SIEM Tools (Splunk, QRadar) <span class="skill-pct">30%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-teal" data-width="30"></div></div>
       </div>
     </div>
     <div>
-      <div class="card reveal" style="margin-bottom:1.5rem;">
-        <p class="skill-category-title" style="color:var(--accent3);">Soft Skills</p>
-        <span class="soft-skill-tag">🧩 Analytical Thinking</span>
-        <span class="soft-skill-tag">🎯 Leadership</span>
-        <span class="soft-skill-tag">🤝 Teamwork</span>
-        <span class="soft-skill-tag">📝 Report Writing</span>
-        <span class="soft-skill-tag">💬 Communication (EN/BM/Tamil)</span>
-        <span class="soft-skill-tag">⏱️ Time Management</span>
-        <span class="soft-skill-tag">🔍 Critical Thinking</span>
-        <span class="soft-skill-tag">🌏 Cross-cultural Collaboration</span>
-        <span class="soft-skill-tag">🎤 Programme Direction</span>
-        <span class="soft-skill-tag">🧘 Composure Under Pressure</span>
+      <div class="card reveal" style="margin-bottom:1.25rem;">
+        <div class="card-icon icon-pink">🌟</div>
+        <div class="card-title">Soft Skills</div>
+        <div>
+          <span class="soft-tag">🧩 Analytical Thinking</span>
+          <span class="soft-tag">🎯 Leadership</span>
+          <span class="soft-tag">🤝 Teamwork</span>
+          <span class="soft-tag">📝 Report Writing</span>
+          <span class="soft-tag">💬 Trilingual</span>
+          <span class="soft-tag">⏱️ Time Management</span>
+          <span class="soft-tag">🔍 Critical Thinking</span>
+          <span class="soft-tag">🌏 Cross-cultural Collab</span>
+          <span class="soft-tag">🎤 Programme Direction</span>
+          <span class="soft-tag">🧘 Calm Under Pressure</span>
+        </div>
       </div>
       <div class="card reveal">
-        <p class="skill-category-title">Tools & Technologies</p>
-        <ul class="skill-list">
+        <div class="card-icon icon-teal">🛠️</div>
+        <div class="card-title">Tools & Technologies</div>
+        <ul class="item-list">
           <li>Wireshark — Network traffic analysis</li>
-          <li>Cisco Packet Tracer / GNS3 — Network simulation</li>
+          <li>Cisco Packet Tracer / GNS3 — Simulation</li>
           <li>Autopsy / FTK Imager — Digital forensics</li>
           <li>Kali Linux / Metasploit — Pen testing</li>
           <li>Arduino IDE — IoT development</li>
-          <li>MySQL — Database management</li>
-          <li>VS Code / GitHub — Development & version control</li>
+          <li>MySQL / GitHub / VS Code — Dev tools</li>
         </ul>
       </div>
     </div>
   </div>
-
   <div class="card reveal" style="margin-top:1.5rem;">
-    <p class="skill-category-title" style="color:var(--accent2);">Skills Gap Analysis — Current vs Industry Requirements</p>
+    <div class="card-icon icon-amber">📋</div>
+    <div class="card-title">Skills Gap Analysis — Current vs Industry Requirements</div>
     <table class="gap-table">
-      <thead>
-        <tr><th>Skill Area</th><th>Industry Requirement</th><th>My Level</th><th>Status</th></tr>
-      </thead>
+      <thead><tr><th>Skill Area</th><th>Industry Requirement</th><th>My Level</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Network Analysis</td><td>Wireshark, tcpdump — proficient</td><td>Intermediate-Advanced</td><td><span class="status have">Strong</span></td></tr>
-        <tr><td>Penetration Testing</td><td>Metasploit, Burp Suite, OWASP</td><td>Intermediate</td><td><span class="status partial">Developing</span></td></tr>
-        <tr><td>Digital Forensics</td><td>Evidence handling, Autopsy, FTK</td><td>Intermediate</td><td><span class="status partial">Developing</span></td></tr>
-        <tr><td>SIEM Tools</td><td>Splunk, QRadar, Sentinel</td><td>Beginner</td><td><span class="status need">To Learn</span></td></tr>
-        <tr><td>Cloud Security</td><td>AWS/Azure security fundamentals</td><td>Beginner</td><td><span class="status need">To Learn</span></td></tr>
-        <tr><td>Python / Scripting</td><td>Automation & custom tooling</td><td>Beginner-Intermediate</td><td><span class="status partial">Developing</span></td></tr>
-        <tr><td>Certifications</td><td>CompTIA Security+, CEH, OSCP</td><td>Training completed (Security+, CCNA)</td><td><span class="status partial">In Progress</span></td></tr>
-        <tr><td>Blockchain Security</td><td>Smart contract & Web3 auditing</td><td>FYP level — applied knowledge</td><td><span class="status have">Unique Edge</span></td></tr>
+        <tr><td>Network Analysis</td><td>Wireshark, tcpdump — proficient</td><td>Intermediate-Advanced</td><td><span class="pill pill-green">Strong ✓</span></td></tr>
+        <tr><td>Penetration Testing</td><td>Metasploit, Burp Suite, OWASP</td><td>Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
+        <tr><td>Digital Forensics</td><td>Autopsy, FTK — evidence handling</td><td>Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
+        <tr><td>SIEM Tools</td><td>Splunk, QRadar, Sentinel</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
+        <tr><td>Cloud Security</td><td>AWS / Azure fundamentals</td><td>Beginner</td><td><span class="pill pill-red">To Learn</span></td></tr>
+        <tr><td>Python / Scripting</td><td>Automation & custom tooling</td><td>Beginner-Intermediate</td><td><span class="pill pill-blue">Developing</span></td></tr>
+        <tr><td>Certifications</td><td>Security+, CEH, OSCP</td><td>Security+ & CCNA training done</td><td><span class="pill pill-amber">In Progress</span></td></tr>
+        <tr><td>Blockchain Security</td><td>Smart contract & Web3 auditing</td><td>FYP-level applied knowledge</td><td><span class="pill pill-green">Unique Edge ✓</span></td></tr>
       </tbody>
     </table>
   </div>
-</section>
+</div>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- PLAN -->
-<section id="plan">
-  <p class="section-label reveal">// 03 — Career Development Plan</p>
-  <h2 class="reveal">The <em>Roadmap</em> Ahead</h2>
-  <div class="skills-grid reveal">
+<div class="section-wrap" id="plan">
+  <div class="reveal">
+    <div class="section-label">03 — Career Development Plan</div>
+    <h2>The <em>Roadmap</em> Ahead</h2>
+    <p class="section-subtitle">A realistic, structured 5-year plan from student to senior analyst.</p>
+  </div>
+  <div class="two-col reveal">
     <div>
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year">NOW → 6 MONTHS</div>
-          <div class="timeline-title">Foundation & Certification</div>
-          <div class="timeline-body">Complete CompTIA Security+ formal certification exam (training already done ✅). Deepen Wireshark and Linux skills through daily CTF practice on TryHackMe and Hack The Box. Begin Splunk Fundamentals (free online). Complete Final Year Project — Blockchain-Based Secure Evidence File Sharing System.</div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Now → 6 Months</div>
+          <div class="tl-title">Foundation & Certification</div>
+          <p class="tl-body">Sit CompTIA Security+ exam (training already done ✅). Complete FYP — Blockchain-Based Secure Evidence File Sharing System. Deepen Wireshark & Linux through TryHackMe and Hack The Box CTFs. Begin Splunk Fundamentals (free online).</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-year">6 MONTHS → 1 YEAR</div>
-          <div class="timeline-title">Specialisation & Portfolio Building</div>
-          <div class="timeline-body">Obtain CompTIA Security+ certificate. Start CEH (Certified Ethical Hacker) preparation. Participate in more CTF competitions — building on Hack10 CTF 2026 and CTF 3.0 experience. Build a public GitHub portfolio with security scripts and forensics projects. Apply for internship in cybersecurity or fintech.</div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--secondary);box-shadow:0 0 0 3px var(--secondary-light);"></div>
+          <div class="tl-year" style="color:var(--secondary);background:var(--secondary-light);">6 Months → 1 Year</div>
+          <div class="tl-title">Specialisation & Portfolio Building</div>
+          <p class="tl-body">Obtain CompTIA Security+ certificate. Start CEH preparation. Participate in more CTF competitions — building on Hack10 CTF 2026 & CTF 3.0. Build a public GitHub portfolio with security scripts and forensics projects. Apply for cybersecurity internship.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-year">1 → 2 YEARS (SHORT-TERM)</div>
-          <div class="timeline-title">First Industry Role</div>
-          <div class="timeline-body">Graduate from UniSZA with strong CGPA (currently 3.78). Land a Junior Cybersecurity Analyst or SOC Analyst role — targeting fintech, banking (Maybank, CIMB), or tech companies. Work in a real SOC environment. Obtain CEH or eJPT certification. Leverage blockchain FYP as a differentiator for Web3 security roles.</div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--teal);box-shadow:0 0 0 3px var(--teal-light);"></div>
+          <div class="tl-year" style="color:var(--teal);background:var(--teal-light);">1 → 2 Years (Short-term Goal)</div>
+          <div class="tl-title">First Industry Role</div>
+          <p class="tl-body">Graduate from UniSZA with strong CGPA (currently 3.78). Land a Junior Cybersecurity Analyst or SOC Analyst role — targeting fintech, banking (Maybank, CIMB), or tech companies. Work in a real SOC environment. Leverage blockchain FYP as a Web3 security differentiator.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2 → 5 YEARS (LONG-TERM)</div>
-          <div class="timeline-title">Senior Analyst & Global Ambition</div>
-          <div class="timeline-body">Progress to Senior Cybersecurity Analyst. Pursue OSCP for advanced offensive security skills. Target Google's cybersecurity team or a global tech firm — inspired by TechTrail: Google Malaysia Industry Visit (2026). Specialise in blockchain security — a niche with explosive global growth. Potentially contribute to open-source security research.</div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--amber);box-shadow:0 0 0 3px var(--amber-light);"></div>
+          <div class="tl-year" style="color:#92400e;background:var(--amber-light);">2 → 5 Years (Long-term Goal)</div>
+          <div class="tl-title">Senior Analyst & Global Ambition</div>
+          <p class="tl-body">Progress to Senior Cybersecurity Analyst. Pursue OSCP for advanced offensive security. Target Google's cybersecurity team — inspired by TechTrail: Google Malaysia Visit (2026). Specialise in blockchain security. Contribute to open-source security research and mentor juniors.</p>
         </div>
       </div>
     </div>
     <div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
-        <div class="cert-card"><div class="cert-icon">🔐</div><div class="cert-name">CompTIA Security+</div><div class="cert-timeline">Training Done ✅ · Exam Soon</div></div>
-        <div class="cert-card"><div class="cert-icon">🌐</div><div class="cert-name">CCNA</div><div class="cert-timeline">Training Done ✅</div></div>
-        <div class="cert-card"><div class="cert-icon">🎯</div><div class="cert-name">CEH</div><div class="cert-timeline">Target: Year 1-2</div></div>
-        <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-name">AWS Security</div><div class="cert-timeline">Target: Year 2</div></div>
-        <div class="cert-card"><div class="cert-icon">💀</div><div class="cert-name">OSCP</div><div class="cert-timeline">Target: Year 3-5</div></div>
-        <div class="cert-card"><div class="cert-icon">🔗</div><div class="cert-name">Blockchain Security</div><div class="cert-timeline">FYP Foundation ✅</div></div>
+      <div class="cert-grid" style="margin-bottom:1.25rem;">
+        <div class="cert-card"><div class="cert-icon">🔐</div><div class="cert-name">CompTIA Security+</div><div class="cert-time">Training Done ✅ · Exam Soon</div></div>
+        <div class="cert-card"><div class="cert-icon">🌐</div><div class="cert-name">CCNA</div><div class="cert-time">Training Done ✅</div></div>
+        <div class="cert-card"><div class="cert-icon">🎯</div><div class="cert-name">CEH</div><div class="cert-time">Target: Year 1–2</div></div>
+        <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-name">AWS Security</div><div class="cert-time">Target: Year 2</div></div>
+        <div class="cert-card"><div class="cert-icon">💀</div><div class="cert-name">OSCP</div><div class="cert-time">Target: Year 3–5</div></div>
+        <div class="cert-card"><div class="cert-icon">🔗</div><div class="cert-name">Blockchain Security</div><div class="cert-time">FYP Foundation ✅</div></div>
       </div>
       <div class="card">
-        <p class="skill-category-title">Platforms to Master</p>
-        <ul class="skill-list">
+        <div class="card-icon icon-teal">🎮</div>
+        <div class="card-title">Platforms to Master</div>
+        <ul class="item-list">
           <li>TryHackMe — guided security labs</li>
-          <li>Hack The Box — real-world CTF (competing now!)</li>
+          <li>Hack The Box — CTF (competing now! 🏆)</li>
           <li>Splunk Free Training — SIEM skills</li>
           <li>OWASP WebGoat — web app security</li>
-          <li>GitHub — portfolio & open source</li>
+          <li>GitHub — public portfolio & open source</li>
         </ul>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- EVIDENCE -->
-<section id="evidence">
-  <p class="section-label reveal">// 04 — Evidence of Learning</p>
-  <h2 class="reveal">Proof of <em>Progress</em></h2>
-
-  <div class="evidence-grid">
-    <div class="card evidence-card reveal">
-      <div class="e-type">🏆 Certification Training</div>
+<div class="section-wrap" id="evidence">
+  <div class="reveal">
+    <div class="section-label">04 — Evidence of Learning</div>
+    <h2>Proof of <em>Progress</em></h2>
+    <p class="section-subtitle">Real certifications, projects, workshops, and achievements.</p>
+  </div>
+  <div class="ev-grid">
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--primary);">🏆 Certification Training</div>
       <h4>Cybersecurity Training Program — Tata Consultancy Services (TCS)</h4>
       <p>Completed a cybersecurity training in collaboration with TCS. Performed a job simulation as a Cybersecurity Analyst — covering security monitoring, threat identification, and incident handling tasks.</p>
     </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🔐 Certification Training</div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--secondary);">🔐 Certification Training</div>
       <h4>CompTIA Security+ Training</h4>
       <p>Completed Security+ training covering network security, risk management, threat analysis, cryptography, security operations, and industry-standard practices for protecting systems and networks.</p>
     </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🌐 Certification Training</div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--teal);">🌐 Certification Training</div>
       <h4>CCNA: Switching, Routing & Wireless Essentials</h4>
-      <p>Obtained practical knowledge in switching, routing, and wireless networking — including VLANs, IPv4/IPv6 addressing, network configuration, troubleshooting, and Cisco device security best practices.</p>
+      <p>Practical knowledge in switching, routing, and wireless networking — including VLANs, IPv4/IPv6 addressing, network configuration, troubleshooting, and Cisco device security best practices.</p>
     </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🤖 Workshop</div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--amber);">🤖 Workshop</div>
       <h4>AI Training Workshop — Mental Wellness Buddy Chatbot</h4>
-      <p>Gained foundational AI & Machine Learning knowledge. Designed and developed an AI chatbot project (Mental Wellness Buddy) — applying chatbot development, user interaction design, and AI implementation skills.</p>
+      <p>Gained foundational AI & Machine Learning knowledge. Designed and developed the Mental Wellness Buddy AI chatbot — applying chatbot development, user interaction design, and AI implementation skills.</p>
     </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🔗 Final Year Project (Ongoing)</div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--primary);">🔗 Final Year Project (Ongoing)</div>
       <h4>Blockchain-Based Secure Evidence File Sharing System</h4>
-      <p>Developing a tamper-proof secure file-sharing system using blockchain for law enforcement. Applying cryptography, decentralised systems, and secure data storage — supervised by Assoc. Prof. Dr. Mohamad Afendee Mohamed.</p>
+      <p>Developing a tamper-proof secure file-sharing system using blockchain for law enforcement. Applying cryptography, decentralised systems, and secure data storage — supervised by Assoc. Prof. Dr. Mohamad Afendee.</p>
     </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🌐 Networking Workshop</div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--secondary);">🚩 CTF Competitions</div>
+      <h4>CTF Competitor — International Hack10 CTF 2026 & CTF 3.0</h4>
+      <p>Participated in International Hack10 Capture-The-Flag 2026 and CTF 3.0 (UniSZA-UMK-UMT). Applying real offensive and defensive cybersecurity skills in competitive environments.</p>
+    </div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--teal);">🌐 Networking Workshop</div>
       <h4>Hands-On Networking Workshop</h4>
       <p>Participated in a practical networking workshop earning exposure to network configuration, IP addressing, and troubleshooting techniques in real lab environments.</p>
     </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🚩 CTF Competitions</div>
-      <h4>CTF Competitor — Hack10 International CTF 2026 & CTF 3.0</h4>
-      <p>Participated in the International Hack10 Capture-The-Flag 2026 and Capture-The-Flag 3.0 (UniSZA-UMK-UMT). Applying real offensive and defensive security skills in competitive environments.</p>
-    </div>
-    <div class="card evidence-card reveal">
-      <div class="e-type">🏅 Academic Achievement</div>
+    <div class="ev-card reveal">
+      <div class="ev-type" style="color:var(--amber);">🏅 Academic Achievement</div>
       <h4>Anugerah Terbaik & Dean's Award (Multiple Semesters)</h4>
-      <p>Received Anugerah Terbaik Program Sarjana Muda Sains Komputer (Keselamatan Rangkaian Komputer) and Dean's Award for Sem I & II 2024/2025 and Sem II 2023/2024. Current CGPA: 3.78.</p>
+      <p>Received Anugerah Terbaik Program Sarjana Muda Sains Komputer and Dean's Award for Sem I & II 2024/2025 and Sem II 2023/2024. Current CGPA: 3.78.</p>
     </div>
   </div>
 
-  <!-- Achievements Timeline -->
   <div class="card reveal" style="margin-top:1.5rem;">
-    <p class="skill-category-title" style="color:var(--accent3);">Leadership, Achievements & International Experience</p>
-    <ul class="achievement-list">
-      <li><span class="yr">2026</span>International Hack10 Capture-The-Flag 2026</li>
-      <li><span class="yr">2026</span>TechTrail: Google Malaysia Industry Visit</li>
-      <li><span class="yr">2026</span>CTF 3.0 — UniSZA-UMK-UMT</li>
-      <li><span class="yr">2025</span>Programme Director — EXACAB (collaborated with UNIBI & UMTAS, Indonesia)</li>
-      <li><span class="yr">2025</span>Top 5 Malaysia Round — ASEAN China-India Youth Leadership Summit (ACIYLS)</li>
-      <li><span class="yr">2025</span>Anugerah Terbaik Program Sarjana Muda Sains Komputer (Keselamatan Rangkaian Komputer)</li>
-      <li><span class="yr">2025</span>Anugerah Dekan — Semester I & II 2024/2025</li>
-      <li><span class="yr">2024</span>Program Mobiliti Berkredit Outbound — Jakarta, Indonesia (UPNVJ)</li>
-      <li><span class="yr">2024</span>Head of Exco Kesenian & Kebudayaan — Persatuan Mahasiswa FIK 2024/2025</li>
-      <li><span class="yr">2024</span>Anugerah Dekan — Semester II 2023/2024</li>
-      <li><span class="yr">2024</span>Vice Director — Appreciation Night & Jalinan Kasih 7.0 by ICS</li>
-      <li><span class="yr">2023</span>Exco Publicity — Indian Cultural Society 2023/2024</li>
+    <div class="card-icon icon-blue">🌟</div>
+    <div class="card-title">Leadership, Achievements & International Experience</div>
+    <ul class="ach-list">
+      <li><span class="yr-badge">2026</span>International Hack10 Capture-The-Flag 2026</li>
+      <li><span class="yr-badge">2026</span>TechTrail: Google Malaysia Industry Visit</li>
+      <li><span class="yr-badge">2026</span>CTF 3.0 — UniSZA-UMK-UMT</li>
+      <li><span class="yr-badge">2025</span>Programme Director — EXACAB (collaborated with UNIBI & UMTAS, Indonesia)</li>
+      <li><span class="yr-badge">2025</span>Top 5 Malaysia Round — ASEAN China-India Youth Leadership Summit (ACIYLS)</li>
+      <li><span class="yr-badge">2025</span>Anugerah Terbaik Program Sarjana Muda Sains Komputer (Keselamatan Rangkaian Komputer)</li>
+      <li><span class="yr-badge">2025</span>Anugerah Dekan — Semester I & II 2024/2025</li>
+      <li><span class="yr-badge">2024</span>Program Mobiliti Berkredit Outbound — Jakarta, Indonesia (UPNVJ)</li>
+      <li><span class="yr-badge">2024</span>Head of Exco Kesenian & Kebudayaan — Persatuan Mahasiswa FIK 2024/2025</li>
+      <li><span class="yr-badge">2024</span>Anugerah Dekan — Semester II 2023/2024</li>
+      <li><span class="yr-badge">2024</span>Vice Director — Appreciation Night & Jalinan Kasih 7.0 by ICS</li>
+      <li><span class="yr-badge">2023</span>Exco Publicity — Indian Cultural Society 2023/2024</li>
     </ul>
   </div>
-</section>
+</div>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- REFLECTION -->
-<section id="reflection">
-  <p class="section-label reveal">// 05 — Personal Reflection</p>
-  <h2 class="reveal">My Dream <em>Company</em></h2>
+<div class="section-wrap" id="reflection">
+  <div class="reveal">
+    <div class="section-label">05 — Personal Reflection</div>
+    <h2>My Dream <em>Company</em></h2>
+    <p class="section-subtitle">Why Google — and what I bring to the table.</p>
+  </div>
 
-  <div class="google-header reveal">
-    <div class="google-logo">
-      <span class="g">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
-    </div>
+  <div class="google-card reveal">
+    <div class="google-logo"><span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span></div>
     <div class="google-info">
       <h3>Google — Cybersecurity & Safety Team</h3>
-      <p>Alphabet Inc. · Mountain View, CA · Pioneering global security research, threat intelligence, Project Zero, and Chronicle Security Operations — protecting billions of users worldwide. I had the privilege of visiting Google Malaysia through TechTrail 2026.</p>
+      <p>Alphabet Inc. · Pioneering global security research via Project Zero, Chronicle, and Mandiant — protecting billions of users worldwide. I had the privilege of visiting Google Malaysia through TechTrail 2026, which cemented my goal to join their security team.</p>
     </div>
   </div>
 
-  <div class="reflection-grid">
-    <div class="card reveal">
-      <div class="reflection-q">Why Google?</div>
-      <div class="reflection-a">
-        Google is not just a company — it is a mission. Their security team (Project Zero, Chronicle, Mandiant) operates at the absolute frontier of global threat intelligence, discovering zero-day vulnerabilities that affect billions of users. The TechTrail: Google Malaysia Industry Visit in 2026 gave me a firsthand look at how Google approaches engineering and innovation — and it confirmed that this is exactly the environment I want to grow in. Google's commitment to open-source security tools, responsible disclosure, and AI-driven threat detection aligns with my values and ambitions. Working at Google would mean working on the world's hardest security problems — and that is where I want to be.
-      </div>
+  <div class="ref-grid">
+    <div class="ref-card reveal">
+      <div class="ref-q">💙 Why Google?</div>
+      <p class="ref-a">Google's security team operates at the absolute frontier of global threat intelligence — discovering zero-day vulnerabilities affecting billions of users. The TechTrail: Google Malaysia Industry Visit (2026) gave me a firsthand look at Google's engineering culture and confirmed this is exactly where I want to grow. Their commitment to open-source security tools, responsible disclosure, and AI-driven threat detection aligns perfectly with my values and career ambitions.</p>
     </div>
-    <div class="card reveal">
-      <div class="reflection-q">What Value Can I Bring?</div>
-      <div class="reflection-a">
-        I bring a rare combination at entry level — network security, digital forensics, penetration testing, and active blockchain research (my FYP). My blockchain work directly positions me to contribute to Google's growing Web3 and smart contract security initiatives. My international exposure — studying in Jakarta through credit mobility, collaborating with universities in Indonesia, and reaching Top 5 in ASEAN China-India Youth Leadership Summit — shows I can work across cultures and think globally. I also bring strong leadership experience as a Programme Director and Head of Exco, which means I understand how to communicate technical issues to non-technical stakeholders.
-      </div>
+    <div class="ref-card reveal">
+      <div class="ref-q">💡 What Value Can I Bring?</div>
+      <p class="ref-a">I bring a rare combination at entry level — network security, digital forensics, penetration testing, and active blockchain research (my FYP). My international exposure — Jakarta credit mobility, ACIYLS Top 5, programme direction with Indonesian universities — shows I think globally. My leadership as Programme Director and Head of Exco means I communicate technical issues to non-technical stakeholders effectively.</p>
     </div>
-    <div class="card reveal">
-      <div class="reflection-q">Why Should You Hire Me?</div>
-      <div class="reflection-a">
-        I have demonstrated consistent excellence — a CGPA of 3.78, Dean's Award across multiple semesters, and Anugerah Terbaik for my programme. But more than grades, I have real practical experience: CTF competitions, a blockchain FYP, networking workshops, and a TCS cybersecurity job simulation. I actively compete in Capture-The-Flag events, which means I already think like an attacker. I am honest about my gaps and actively closing them. I am the kind of hire who shows up prepared, grows fast, and brings both technical depth and leadership maturity from day one.
-      </div>
+    <div class="ref-card reveal">
+      <div class="ref-q">🎯 Why Should You Hire Me?</div>
+      <p class="ref-a">CGPA 3.78, Dean's Award across multiple semesters, Anugerah Terbaik for my programme — but more than grades, I have real practical experience: CTF competitions, a blockchain FYP, TCS cybersecurity job simulation, and networking workshops. I actively compete in Capture-The-Flag events, meaning I already think like an attacker. I am honest about my gaps and closing them systematically.</p>
     </div>
-    <div class="card reveal">
-      <div class="reflection-q">Skills That Make Me Suitable</div>
-      <div class="reflection-a">
-        My Wireshark and networking proficiency enables effective packet-level threat detection. My penetration testing background (including CTF competition experience) helps me understand attacker methodology — crucial for defensive security. My computer forensics training (Autopsy, FTK Imager) allows methodical digital evidence analysis. My blockchain FYP opens a niche specialisation in Web3 security. Combined with multilingual communication (English, Bahasa Malaysia, Tamil), strong report-writing skills, and proven leadership as Programme Director, I bring both technical and human skills that Google values.
-      </div>
+    <div class="ref-card reveal">
+      <div class="ref-q">🛡️ Skills That Make Me Suitable</div>
+      <p class="ref-a">Wireshark proficiency enables packet-level threat detection. CTF experience teaches me to think offensively — crucial for defensive security. Forensics training (Autopsy, FTK Imager) enables methodical digital evidence analysis. My blockchain FYP opens a Web3 security specialisation. Multilingual (English, Bahasa Malaysia, Tamil) with proven leadership and clear technical report-writing skills round out the full picture.</p>
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top:1.5rem;">
-    <div class="reflection-q" style="margin-bottom:1rem;">Strengths & Weaknesses — Honest Self-Assessment</div>
-    <div class="sw-grid">
-      <div class="sw-box strength">
-        <div class="sw-label">✅ Strengths</div>
-        <ul class="sw-list">
-          <li>• Strong academic record (CGPA 3.78, multiple Dean's Awards)</li>
-          <li>• Multi-disciplinary: forensics + networking + blockchain + IoT</li>
-          <li>• Real CTF competition experience (International Hack10, CTF 3.0)</li>
-          <li>• International exposure — Jakarta mobility, ACIYLS Top 5</li>
-          <li>• Proven leadership as Programme Director and Head of Exco</li>
-          <li>• Trilingual — English, Bahasa Malaysia, Tamil</li>
-          <li>• Self-motivated continuous learner</li>
-        </ul>
-      </div>
-      <div class="sw-box weakness">
-        <div class="sw-label">⚠️ Areas I Am Actively Improving</div>
-        <ul class="sw-list">
-          <li>• No formal enterprise SOC experience yet (seeking internship)</li>
-          <li>• SIEM tools (Splunk, QRadar) still at beginner level</li>
-          <li>• Python scripting needs more depth for automation tasks</li>
-          <li>• Cloud security is a developing area</li>
-          <li>• CompTIA Security+ training done — exam not yet sat</li>
-        </ul>
-      </div>
+  <div class="sw-grid reveal">
+    <div class="sw-box sw-strength">
+      <div class="sw-label">✅ Strengths</div>
+      <ul class="sw-list">
+        <li>🎓 Strong academics — CGPA 3.78, multiple Dean's Awards</li>
+        <li>🔀 Multi-disciplinary: forensics + networking + blockchain + IoT</li>
+        <li>🚩 Real CTF experience — International Hack10, CTF 3.0</li>
+        <li>🌏 International exposure — Jakarta mobility, ACIYLS Top 5</li>
+        <li>🎯 Proven leadership — Programme Director, Head of Exco</li>
+        <li>💬 Trilingual — English, Bahasa Malaysia, Tamil</li>
+      </ul>
+    </div>
+    <div class="sw-box sw-weakness">
+      <div class="sw-label">⚠️ Areas I Am Actively Improving</div>
+      <ul class="sw-list">
+        <li>📊 No formal enterprise SOC experience yet (seeking internship)</li>
+        <li>🖥️ SIEM tools (Splunk, QRadar) still at beginner level</li>
+        <li>🐍 Python scripting needs more depth for automation</li>
+        <li>☁️ Cloud security is a developing area</li>
+        <li>📜 Security+ training done — exam not yet sat</li>
+      </ul>
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top:1.5rem;">
-    <div class="reflection-q">Why Would Google Choose Me?</div>
-    <div class="reflection-a" style="font-size:1rem;line-height:1.9;">
-      Google looks for people who are curious, driven, and capable of thinking differently. I am pursuing cybersecurity not because it is a trending career, but because I genuinely care about digital safety — as proven by my choice to do a blockchain-based evidence security system as my Final Year Project. My combination of academic excellence, CTF competition experience, international leadership, and a rare specialisation in blockchain security is uncommon among fresh graduates. The TechTrail Google Malaysia visit in 2026 showed me the standard Google sets — and I am building toward it with intention. I am honest about what I still need to learn, I close gaps systematically, and I bring the kind of leadership and cross-cultural perspective that creates long-term value in a global team like Google's.
-    </div>
+  <div class="ref-card reveal" style="margin-top:1.5rem;">
+    <div class="ref-q">🌟 Why Would Google Choose Me?</div>
+    <p class="ref-a" style="font-size:0.95rem;line-height:1.9;">
+      Google looks for people who are curious, driven, and capable of thinking differently. I am pursuing cybersecurity not because it is a trending career, but because I genuinely care about digital safety — as proven by my choice to build a blockchain-based evidence security system as my Final Year Project. My combination of academic excellence, CTF competition experience, international leadership, and a rare blockchain security specialisation is uncommon among fresh graduates. The TechTrail Google Malaysia visit confirmed the standard Google sets — and I am building toward it with intention, honesty, and relentless curiosity.
+    </p>
   </div>
-</section>
+</div>
 
 <footer>
-  <p><span>Anandashrubini Seevagan</span> · anandashrubiniseevagan@gmail.com · +6012 919 7679</p>
+  <p><strong>Anandashrubini Seevagan</strong> · <a href="mailto:anandashrubiniseevagan@gmail.com">anandashrubiniseevagan@gmail.com</a> · +6012 919 7679</p>
   <p style="margin-top:0.4rem;">Universiti Sultan Zainal Abidin · CSA30203 Special Topics in Network Security · 2025/2026</p>
-  <p style="margin-top:0.4rem;"><a href="https://www.linkedin.com/in/anandashrubini-seevagan" style="color:var(--accent);text-decoration:none;">linkedin.com/in/anandashrubini-seevagan ↗</a></p>
+  <p style="margin-top:0.4rem;"><a href="https://www.linkedin.com/in/anandashrubini-seevagan">linkedin.com/in/anandashrubini-seevagan ↗</a></p>
 </footer>
 
 <script>
