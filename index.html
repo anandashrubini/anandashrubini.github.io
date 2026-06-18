@@ -204,6 +204,18 @@
     /* CAREER */
     .career-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 1.5rem; margin-bottom: 1.5rem; }
     .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .path-grid { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .path-step {
+      flex: 1; min-width: 130px; text-align: center;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1rem 0.5rem;
+    }
+    .path-step-active { background: var(--primary-light); border-color: #c7cdf9; }
+    .path-step-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .path-step-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .path-step-time { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; }
+    .path-arrow { color: var(--text-muted); font-size: 1.1rem; flex-shrink: 0; }
     .stat-card {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 16px; padding: 1.25rem; text-align: center;
@@ -371,10 +383,14 @@
 
     @media (max-width: 768px) {
       .career-grid, .two-col, .stat-grid, .ev-grid, .ref-grid, .sw-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
+      .stat-grid-4 { grid-template-columns: repeat(2, 1fr); }
       .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-flex { flex-direction: column; text-align: center; gap: 1.5rem; }
       .cta-row { justify-content: center; }
+      .path-grid { flex-direction: column; }
+      .path-arrow { transform: rotate(90deg); }
+      .path-step { width: 100%; }
       nav { padding: 0 1rem; }
       .nav-links { gap: 0; }
       .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
@@ -385,7 +401,7 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="#hero"><span class="dot"></span> ANANDASHRUBINI PORTFOLIO</a>
+  <a class="nav-logo" href="#hero"><span class="dot"></span> anandashrubini portfolio</a>
   <ul class="nav-links">
     <li><a href="#career">Career</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -405,7 +421,6 @@
   <div class="hero-inner">
     <div class="hero-flex">
       <div class="hero-photo-col">
-        <!-- Replace this div with: <img src="photo.jpg" alt="Anandashrubini" class="profile-photo"> -->
         <img src="photo.jpeg" alt="Anandashrubini" class="profile-photo">
       </div>
       <div class="hero-text">
@@ -432,52 +447,76 @@
     <h2>Understanding the <em>Field</em></h2>
     <p class="section-subtitle">Why Cybersecurity Analyst — and why it matters now more than ever.</p>
   </div>
-  <div class="career-grid reveal">
-    <div class="card">
-      <div class="card-icon icon-blue">🛡️</div>
-      <div class="card-title">Cybersecurity Analyst</div>
-      <p class="card-body">
-        A Cybersecurity Analyst protects an organisation's digital infrastructure by monitoring networks for threats, investigating security incidents, and implementing defensive controls. They sit at the intersection of technical expertise and strategic thinking — analysing attack patterns, conducting vulnerability assessments, and responding to breaches in real time.
-        <br/><br/>
-        In today's landscape, cyber threats are growing at an exponential rate — from ransomware targeting critical infrastructure to state-sponsored espionage. Malaysia's national cybersecurity framework and rapid digital transformation across banking, aviation, and healthcare have made this one of the most in-demand roles in the country.
-        <br/><br/>
-        My academic training at UniSZA in network security, forensics, and penetration testing — combined with real CTF experience and a Final Year Project in blockchain-based secure evidence sharing — gives me a strong, differentiated foundation for this career.
-      </p>
-    </div>
-    <div>
-      <div class="card" style="margin-bottom:1.25rem;">
-        <div class="card-title" style="font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Key Responsibilities</div>
-        <ul class="item-list">
-          <li>Monitor SIEM tools for anomalies & intrusions</li>
-          <li>Conduct vulnerability assessments & pen tests</li>
-          <li>Investigate & respond to security incidents</li>
-          <li>Analyse malware and threat intelligence</li>
-          <li>Maintain security policies & compliance</li>
-          <li>Perform digital forensics investigations</li>
-          <li>Produce security reports for stakeholders</li>
-        </ul>
-      </div>
-    </div>
+
+  <div class="stat-grid-4 reveal">
+    <div class="stat-card"><div class="stat-num" style="color:var(--primary);">RM5K+</div><div class="stat-label">Avg. Monthly Salary (MY)</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:var(--secondary);">32%</div><div class="stat-label">Global Job Growth Rate</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:var(--teal);">3.5M</div><div class="stat-label">Global Talent Shortage</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:var(--amber);">#1</div><div class="stat-label">In-Demand IT Role 2025</div></div>
   </div>
+
+  <div class="card reveal" style="margin-bottom:1.5rem;">
+    <div class="card-icon icon-blue">🛡️</div>
+    <div class="card-title">What does a Cybersecurity Analyst do?</div>
+    <p class="card-body">
+      In short: they're the people who keep an organisation's systems safe. A Cybersecurity Analyst watches networks for suspicious activity, investigates incidents when something goes wrong, and fixes weak points before attackers find them. With cybercrime rising fast across Malaysia's banking, aviation, and healthcare sectors, this role has become one of the most in-demand jobs in tech today — and it's exactly where my network security and forensics training has been leading me.
+    </p>
+  </div>
+
   <div class="two-col reveal">
     <div class="card">
-      <div class="card-icon icon-pink">💼</div>
-      <div class="card-title">Technical Skills Required</div>
+      <div class="card-icon icon-teal">✅</div>
+      <div class="card-title">Key Responsibilities</div>
       <ul class="item-list">
-        <li>SIEM tools — Splunk, IBM QRadar, Sentinel</li>
-        <li>Network packet analysis — Wireshark, tcpdump</li>
-        <li>Scripting — Python, Bash automation</li>
-        <li>Pen testing — Metasploit, Burp Suite</li>
-        <li>Firewall & IDS/IPS configuration</li>
-        <li>Cloud security — AWS, Azure</li>
-        <li>Digital forensics — Autopsy, FTK Imager</li>
+        <li>Monitor networks for threats & intrusions</li>
+        <li>Run vulnerability assessments & pen tests</li>
+        <li>Investigate & respond to incidents</li>
+        <li>Track malware and threat intelligence</li>
+        <li>Perform digital forensics investigations</li>
+        <li>Write clear security reports</li>
       </ul>
     </div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" style="color:var(--primary);">RM5K+</div><div class="stat-label">Avg. Monthly Salary in Malaysia</div></div>
-      <div class="stat-card"><div class="stat-num" style="color:var(--secondary);">32%</div><div class="stat-label">Global Job Growth Rate</div></div>
-      <div class="stat-card"><div class="stat-num" style="color:var(--teal);">3.5M</div><div class="stat-label">Global Talent Shortage</div></div>
-      <div class="stat-card"><div class="stat-num" style="color:var(--amber);">#1</div><div class="stat-label">Most In-Demand IT Role 2025</div></div>
+    <div class="card">
+      <div class="card-icon icon-pink">💼</div>
+      <div class="card-title">Skills the Industry Expects</div>
+      <ul class="item-list">
+        <li>SIEM tools — Splunk, QRadar</li>
+        <li>Packet analysis — Wireshark, tcpdump</li>
+        <li>Pen testing — Metasploit, Burp Suite</li>
+        <li>Scripting — Python, Bash</li>
+        <li>Cloud security — AWS, Azure</li>
+        <li>Forensics — Autopsy, FTK Imager</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-top:1.5rem;">
+    <div class="card-icon icon-amber">🚀</div>
+    <div class="card-title">My Career Path</div>
+    <div class="path-grid">
+      <div class="path-step path-step-active">
+        <div class="path-step-icon">🎓</div>
+        <div class="path-step-title">Graduate</div>
+        <div class="path-step-time">Now – 2027</div>
+      </div>
+      <div class="path-arrow">→</div>
+      <div class="path-step">
+        <div class="path-step-icon">🔍</div>
+        <div class="path-step-title">Junior Analyst</div>
+        <div class="path-step-time">2027 – 2029</div>
+      </div>
+      <div class="path-arrow">→</div>
+      <div class="path-step">
+        <div class="path-step-icon">🛡️</div>
+        <div class="path-step-title">Senior Analyst</div>
+        <div class="path-step-time">2029 – 2031</div>
+      </div>
+      <div class="path-arrow">→</div>
+      <div class="path-step">
+        <div class="path-step-icon">🌐</div>
+        <div class="path-step-title">Blockchain Security Specialist</div>
+        <div class="path-step-time">2031+</div>
+      </div>
     </div>
   </div>
 </div>
