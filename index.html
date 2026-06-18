@@ -1073,7 +1073,7 @@
     <p class="section-subtitle">Reach out for internship opportunities, collaboration, or just to say hi!</p>
   </div>
   <div class="contact-grid reveal">
-    <a href="mailto:anandashrubiniseevagan@gmail.com" class="contact-card">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anandashrubiniseevagan@gmail.com" target="_blank" class="contact-card">
       <div class="contact-icon icon-blue">📧</div>
       <div class="contact-label">Email</div>
       <div class="contact-value">anandashrubiniseevagan@gmail.com</div>
@@ -1092,7 +1092,7 @@
 </div>
 
 <footer>
-  <p><strong>Anandashrubini Seevagan</strong> · <a href="mailto:anandashrubiniseevagan@gmail.com">anandashrubiniseevagan@gmail.com</a> · +6012 919 7679</p>
+  <p><strong>Anandashrubini Seevagan</strong> · <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anandashrubiniseevagan@gmail.com" target="_blank">anandashrubiniseevagan@gmail.com</a> · +6012 919 7679</p>
   <p style="margin-top:0.4rem;">Universiti Sultan Zainal Abidin · CSA30203 Special Topics in Network Security · 2025/2026</p>
   <p style="margin-top:0.4rem;"><a href="https://www.linkedin.com/in/anandashrubini-seevagan">linkedin.com/in/anandashrubini-seevagan ↗</a></p>
 </footer>
@@ -1116,9 +1116,14 @@
   function setActiveLink() {
     let current = sections[0];
     const scrollPos = window.scrollY + 100;
-    sections.forEach(sec => {
-      if (sec && sec.offsetTop <= scrollPos) current = sec;
-    });
+    const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    if (atBottom) {
+      current = sections[sections.length - 1];
+    } else {
+      sections.forEach(sec => {
+        if (sec && sec.offsetTop <= scrollPos) current = sec;
+      });
+    }
     navLinks.forEach(link => {
       link.classList.toggle('active', current && link.getAttribute('href') === '#' + current.id);
     });
